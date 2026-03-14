@@ -22,6 +22,15 @@ Proposed
 
 기존 운영 중인 자산이 존재하므로, 본 결정은 현재 자산을 즉시 전면 개편하기보다 향후 설계와 점진적 정렬을 위한 기준을 제공하는 것을 목표로 합니다.
 
+또한 이 ADR은 HashiCorp가 게시한 자료인 [Happy Terraforming! Real-world experience and proven best practices](https://www.hashicorp.com/en/resources/terraforming-real-world-experience-best-practices)를 중요한 참고 자료로 삼았습니다. 해당 자료는 대규모 조직에서 Terraform 코드를 `bootstrap`, `foundation`, `services` 레이어로 나누어 워크플로우, 책임 분리, lifecycle 차이, monolith 방지를 다루고 있습니다.
+
+본 ADR은 그 문제의식과 layering 접근에서 영향을 받았지만, 이 저장소에서는 이를 그대로 복제하지 않고 다음과 같이 재해석했습니다.
+
+- `bootstrap / foundation / services` 개념을 현재 문맥에 맞게 `Foundation / Platform / Service` 모델로 재구성
+- 단순 폴더 분리보다 `ownership`, `Contract`, `Workspace`, `blast radius` 기준을 더 강하게 명시
+- shared resource 운영을 위해 `Core / Access / Publication` 분리 모델을 추가
+- 기존 운영 자산을 즉시 재구성하지 않고 `legacy 허용 + 점진 migration` 원칙으로 완화
+
 ## 결정
 
 ### 1. Layer는 ownership과 dependency direction을 정의한다

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Terraform 3-Layer Doc Maintainer"
+  short_description: "Maintain the architecture specification, conventions, ADR links, and documentation index for this repository."
+  default_prompt: "Use $terraform-3-layer-doc-maintainer to strengthen and maintain the Terraform 3-layer architecture documentation system."
+
+policy:
+  allow_implicit_invocation: true

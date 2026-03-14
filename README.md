@@ -1,4 +1,4 @@
-# tf-3layer
+# Terraform 3계층 아키텍처 기술 명세서
 
 Terraform 3-Layer 아키텍처 기술 명세서를 정리한 문서 저장소입니다.
 

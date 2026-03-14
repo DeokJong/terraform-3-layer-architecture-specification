@@ -1,0 +1,174 @@
+{
+    "source_of_truth":  "docs/meta/document-registry.json",
+    "last_updated":  "2026-03-14",
+    "sections":  [
+                     {
+                         "name":  "Canonical Root Documents",
+                         "description":  "These files define the canonical architecture meaning and repository entry points.",
+                         "documents":  [
+                                           {
+                                               "title":  "README",
+                                               "path":  "README.md",
+                                               "purpose":  "Repository entry point and top-level navigation.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep terminology aligned with the canonical specification."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Architecture Specification",
+                                               "path":  "terraform-3-layer-architecture-specification.md",
+                                               "purpose":  "Canonical architecture technical specification for the Terraform 3-layer model.",
+                                               "owner":  "architecture-specification",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep templates and rollout scenarios aligned with published architecture pages."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Architecture Conventions",
+                                               "path":  "terraform-3-layer-architecture-conventions.md",
+                                               "purpose":  "Canonical implementation and review conventions.",
+                                               "owner":  "architecture-conventions",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep concrete examples aligned with the canonical specification."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "ADR-0001 Root Record",
+                                               "path":  "adr-3layer-architecture-contract-workspace.md",
+                                               "purpose":  "Root ADR that records the architecture decision and rationale.",
+                                               "owner":  "adr",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep in sync with published ADR page when ADR structure evolves."
+                                                                ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "name":  "Published Documentation Portal",
+                         "description":  "These files support the GitHub Pages reading experience.",
+                         "documents":  [
+                                           {
+                                               "title":  "Docs Portal Index",
+                                               "path":  "docs/index.md",
+                                               "purpose":  "Human-friendly documentation landing page.",
+                                               "owner":  "docs-portal",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep task-based navigation aligned with templates and scenario guides."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Architecture Pages",
+                                               "path":  "docs/architecture/index.md",
+                                               "purpose":  "Section entry point for architecture specification pages.",
+                                               "owner":  "docs-portal",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep reading order aligned with canonical specification and scenario/template pages."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Convention Pages",
+                                               "path":  "docs/conventions/index.md",
+                                               "purpose":  "Section entry point for implementation conventions.",
+                                               "owner":  "docs-portal",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep example-driven quick links aligned with canonical conventions."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Shared Resource Design Template Page",
+                                               "path":  "docs/architecture/11-shared-resource-design-template.md",
+                                               "purpose":  "Reusable template for documenting new shared resource designs.",
+                                               "owner":  "docs-portal",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Extend the template only when new shared resource patterns appear."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Migration and Rollout Scenarios Page",
+                                               "path":  "docs/architecture/12-migration-and-rollout-scenarios.md",
+                                               "purpose":  "Scenario-driven guidance for contract migration, rollout, and rollback.",
+                                               "owner":  "docs-portal",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Add new scenarios when real rollout patterns emerge."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Concrete Examples Page",
+                                               "path":  "docs/conventions/11-concrete-examples.md",
+                                               "purpose":  "Operator-facing examples for workspace, naming, and shared resource conventions.",
+                                               "owner":  "docs-portal",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep examples synchronized with canonical conventions."
+                                                                ]
+                                           }
+                                       ]
+                     },
+                     {
+                         "name":  "Documentation Governance",
+                         "description":  "These files govern how Codex should maintain the documentation system itself.",
+                         "documents":  [
+                                           {
+                                               "title":  "Repository AGENTS",
+                                               "path":  "AGENTS.md",
+                                               "purpose":  "Repository-specific agent instructions for maintaining the documentation system.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep aligned with the skill and registry workflow."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Documentation System Index",
+                                               "path":  "docs/meta/index.md",
+                                               "purpose":  "Entry point for the documentation maintenance and indexing system.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Keep linked from the docs portal and AGENTS guidance."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Document Registry",
+                                               "path":  "docs/meta/document-registry.json",
+                                               "purpose":  "Single machine-readable source of truth for document scope, ownership, and progress.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Expand tracked documents as templates and scenario guides are added."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Work Index",
+                                               "path":  "docs/meta/work-index.md",
+                                               "purpose":  "Human-readable status board generated from the registry.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Regenerate after every registry update."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Terraform 3-Layer Doc Maintainer Skill",
+                                               "path":  "skills/terraform-3-layer-doc-maintainer/SKILL.md",
+                                               "purpose":  "Repository-local Codex skill for strengthening and maintaining the documentation system.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Iterate after real maintenance tasks expose gaps."
+                                                                ]
+                                           }
+                                       ]
+                     }
+                 ]
+}

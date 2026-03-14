@@ -1,4 +1,4 @@
-# Terraform 3-Layer Architecture Conventions
+﻿# Terraform 3-Layer Architecture Conventions
 
 ## 1. 목적
 
@@ -334,3 +334,51 @@ shared Redis:
 - shared resource의 core와 access가 불필요하게 섞여 있지 않은가
 - legacy naming이 필요하더라도 의미 해석은 새 기준을 따르는가
 - 실패 시 rollback과 병행 migration이 가능한가
+
+## 14. Concrete Examples
+
+### 14.1 DB Example
+
+| Item | Recommended Placement |
+| --- | --- |
+| DB cluster | `platform-db-core` |
+| SG allowlist | `platform-db-access` |
+| stable host publication | `platform-db-contract` |
+| app consumer | service runtime consumes contract only |
+
+In a small-scale environment these can still live in one workspace, but frequent onboarding or access churn is the signal to split them.
+
+### 14.2 S3 Example
+
+| Item | Recommended Placement |
+| --- | --- |
+| shared bucket | `platform-storage-core` |
+| bucket policy binding | `platform-storage-access` |
+| public outputs or shared publication | `platform-storage-contract` |
+
+### 14.3 Redis Example
+
+| Item | Recommended Placement |
+| --- | --- |
+| Redis core | `platform-cache-core` |
+| ingress allowlist | `platform-cache-access` |
+| stable endpoint publication | `platform-cache-contract` |
+
+### 14.4 Ingress Example
+
+| Item | Recommended Placement |
+| --- | --- |
+| shared ingress core | `platform-ingress-core` |
+| listener rule binding or allowlist | `platform-ingress-access` or related access workspace |
+| stable hostname | contract or DNS publication workspace |
+
+### 14.5 Fast Classification Examples
+
+| Question | Example Answer | Outcome |
+| --- | --- | --- |
+| Is it consumed by many services | yes | Platform candidate |
+| Does it move with one service lifecycle | yes | Service candidate |
+| Is it part of global network foundation | yes | Foundation candidate |
+| Is it a stable consumer-facing value | yes | Contract candidate |
+| Is it a physical endpoint or internal ID | yes | Implementation Value candidate |
+

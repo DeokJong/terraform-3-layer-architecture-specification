@@ -1,4 +1,4 @@
-# Terraform 3-Layer Architecture Technical Specification
+﻿# Terraform 3-Layer Architecture Technical Specification
 
 ## 1. 문서 개요
 
@@ -980,3 +980,115 @@ shared resource나 service interface를 새로 만들 때는 최소한 아래를
 - 이 문서는 구조와 책임을 정의하는 아키텍처 기술 명세서입니다.
 - [terraform-3-layer-architecture-conventions.md](./terraform-3-layer-architecture-conventions.md)는 naming, contract, workspace 설계 Convention을 정의합니다.
 - [adr-3layer-architecture-contract-workspace.md](./adr-3layer-architecture-contract-workspace.md)는 해당 구조를 채택한 배경과 결정을 기록합니다.
+
+## 16. Shared Resource Design Template
+
+Use this template when introducing a new shared resource.
+
+### 16.1 Basic Record
+
+| Field | Description |
+| --- | --- |
+| Resource Name | Example: shared orders DB |
+| Resource Type | DB / Cache / Bucket / KMS / Ingress |
+| Layer | Foundation / Platform / Service |
+| Owner | Lifecycle owner |
+| Primary Consumer | Main consumer or consumer class |
+| Criticality | low / medium / high |
+
+### 16.2 Design Decisions
+
+| Question | Example Answer |
+| --- | --- |
+| Why is this shared | Multiple services consume it |
+| Why does it belong to this layer | It is not tied to a single service lifecycle |
+| What is hidden as implementation | Physical endpoint or internal IDs |
+| What is published as contract | Stable DNS, SSM path, standard output |
+| How often does access change | Monthly / weekly / frequent |
+| Is publication separate from core | Yes or no with reason |
+
+### 16.3 Core / Access / Publication Plan
+
+| Area | Included Resources | Owner | Change Frequency | Split Decision |
+| --- | --- | --- | --- | --- |
+| Core | Primary resource body | provider | low | split if blast radius is large |
+| Access | allowlist, bindings, grants | provider or access owner | medium or high | split if churn is high |
+| Publication | DNS, SSM, output | provider | low or medium | split if migration is likely |
+
+### 16.4 Contract Record
+
+| Contract Name | Type | Consumer | Publication | Source of Truth | Stability |
+| --- | --- | --- | --- | --- | --- |
+| `db-main.internal.example.com` | Connectivity | backend services | Route53 | platform-db-core | stable |
+| `/platform/orders/db/host` | Runtime | app runtime | SSM | platform-db-contract | stable |
+
+### 16.5 Review Questions
+
+- Does this shared resource really have a shared lifecycle
+- Can core stability survive consumer growth
+- Will access churn force repeated core applies
+- Can contract migration run in parallel without breaking consumers
+
+## 17. Migration and Rollout Scenarios
+
+### 17.1 Contract Migration
+
+1. Identify the current Active Contract.
+2. Define and publish the new Contract in parallel.
+3. Identify consumers and migration order.
+4. Operate both contracts during migration.
+5. Move the old contract to Deprecated after migration.
+6. Remove it only after stabilization.
+
+### 17.2 Shared Resource Access Expansion
+
+Scenario:
+
+- A new service needs access to a shared DB or shared bucket.
+
+Recommended sequence:
+
+1. Create the new consumer identity such as Client SG or principal.
+2. Update only the access workspace.
+3. Keep the core workspace unchanged.
+4. Connect the service through the published contract.
+
+### 17.3 Shared Resource Replacement
+
+Scenario:
+
+- DB engine replacement, cluster replacement, or bucket redesign is needed.
+
+Recommended sequence:
+
+1. Confirm consumers do not read implementation values directly.
+2. Prepare the new core resource.
+3. Check whether the existing Contract can continue to represent the new core.
+4. If yes, switch publication while preserving contract meaning.
+5. If not, publish a new Contract in parallel and migrate consumers.
+
+### 17.4 Service Rollout Failure
+
+Scenario:
+
+- Service runtime deployment fails or a new contract consumer rollout fails.
+
+Recommended sequence:
+
+1. Roll back only the service workspace.
+2. Keep shared core and existing contracts intact.
+3. If the issue is access-related, revert only the access workspace.
+
+### 17.5 Legacy Transition
+
+Scenario:
+
+- Existing names and paths must stay, but ownership interpretation must move to the new model.
+
+Recommended sequence:
+
+1. Identify the current value as a legacy contract or implementation.
+2. Reinterpret provider ownership under the new rules.
+3. Route new consumers to the new contract model.
+4. Migrate existing consumers gradually.
+

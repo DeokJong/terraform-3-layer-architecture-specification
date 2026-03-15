@@ -1,3 +1,13 @@
+---
+title: ADR-0001
+description: 3계층 Terraform 구조와 contract/workspace 모델을 채택한 배경, 기대효과, trade-off를 기록한 ADR입니다.
+hero_kicker: Architecture Decision Record
+doc_section: adr
+nav_parent: adr-index
+nav_order: 2
+nav_title: ADR-0001
+---
+
 # ADR-0001: 3-Layer Architecture and Contract / Workspace Model
 
 원문 ADR:
@@ -10,7 +20,7 @@
 
 ## 상태
 
-Proposed
+Accepted
 
 ## 요약
 
@@ -35,3 +45,4 @@ Proposed
 상세한 배경과 예시는 아래 원문 ADR을 참조합니다.
 
 - [adr-3layer-architecture-contract-workspace.md](../../adr-3layer-architecture-contract-workspace.md)
+

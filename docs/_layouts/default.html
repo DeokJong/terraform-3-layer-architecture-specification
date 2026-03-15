@@ -41,7 +41,7 @@
       }
 
       .shell {
-        max-width: 1180px;
+        max-width: 1320px;
         margin: 0 auto;
         padding: 24px;
       }
@@ -74,18 +74,9 @@
 
       .layout {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 260px;
+        grid-template-columns: 290px minmax(0, 1fr);
         gap: 24px;
         align-items: start;
-      }
-
-      .content {
-        min-width: 0;
-        padding: 32px;
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        background: var(--surface);
-        box-shadow: var(--shadow);
       }
 
       .sidebar {
@@ -99,17 +90,39 @@
         box-shadow: var(--shadow);
       }
 
-      .sidebar[hidden] {
-        display: none;
+      .sidebar-brand {
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #ece6d8;
       }
 
-      .sidebar-title {
-        margin: 0 0 12px;
+      .sidebar-kicker {
+        margin: 0 0 6px;
         font-size: 0.82rem;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
+      }
+
+      .sidebar-home {
+        display: block;
+        color: var(--heading);
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .sidebar-section + .sidebar-section {
+        margin-top: 18px;
+        padding-top: 18px;
+        border-top: 1px solid #ece6d8;
+      }
+
+      .sidebar-title {
+        margin: 0 0 10px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--heading);
       }
 
       .sidebar-list {
@@ -144,14 +157,60 @@
         font-weight: 600;
       }
 
-      .sidebar-link.level-3 {
-        padding-left: 22px;
-        font-size: 0.9rem;
+      .sidebar-link.child {
+        margin-left: 14px;
+        padding-left: 12px;
+        border-left: 2px solid #ece6d8;
+        border-radius: 0 12px 12px 0;
+        font-size: 0.92rem;
+      }
+
+      .content {
+        min-width: 0;
+        padding: 36px;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .content-home {
+        padding-top: 0;
+      }
+
+      .page-hero {
+        margin: -36px -36px 28px;
+        padding: 32px 36px 26px;
+        border-bottom: 1px solid #ece6d8;
+        border-radius: 24px 24px 0 0;
+        background:
+          radial-gradient(circle at top right, rgba(207, 185, 138, 0.26), transparent 34%),
+          linear-gradient(135deg, #fcfaf5 0%, #f3eee0 100%);
+      }
+
+      .page-kicker {
+        margin: 0 0 8px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .page-description {
+        max-width: 760px;
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 1.04rem;
       }
 
       h1, h2, h3, h4 {
         color: var(--heading);
         line-height: 1.25;
+      }
+
+      .content > h1:first-child {
+        display: none;
       }
 
       h1 {
@@ -167,6 +226,35 @@
 
       p, li, table {
         font-size: 1rem;
+      }
+
+      .home-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin: 1.6rem 0 2rem;
+      }
+
+      .home-card {
+        padding: 18px 18px 16px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: #fbfaf6;
+      }
+
+      .home-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.45rem;
+      }
+
+      .home-card p {
+        margin-top: 0;
+        color: var(--muted);
+      }
+
+      .home-card ul {
+        margin-bottom: 0;
+        padding-left: 18px;
       }
 
       code {
@@ -242,7 +330,6 @@
 
         .sidebar {
           position: static;
-          order: -1;
         }
       }
 
@@ -257,8 +344,17 @@
           padding: 20px;
         }
 
+        .page-hero {
+          margin: -20px -20px 22px;
+          padding: 24px 20px 20px;
+        }
+
         h1 {
           font-size: 1.8rem;
+        }
+
+        .home-grid {
+          grid-template-columns: minmax(0, 1fr);
         }
       }
     </style>
@@ -272,9 +368,6 @@
 
       window.addEventListener("DOMContentLoaded", async () => {
         const blocks = document.querySelectorAll("pre code.language-mermaid");
-        const content = document.querySelector(".content");
-        const sidebar = document.querySelector("[data-page-sidebar]");
-        const sidebarList = document.querySelector("[data-page-sidebar-list]");
 
         for (const block of blocks) {
           const pre = block.parentElement;
@@ -292,78 +385,6 @@
         await mermaid.run({
           querySelector: ".mermaid"
         });
-
-        if (!content || !sidebar || !sidebarList) {
-          return;
-        }
-
-        const slugify = (text) =>
-          text
-            .toLowerCase()
-            .trim()
-            .replace(/[^\w\s-가-힣]/g, "")
-            .replace(/\s+/g, "-");
-
-        const headings = [...content.querySelectorAll("h2, h3")];
-        const usedIds = new Set();
-
-        const uniqueId = (base) => {
-          let candidate = base || "section";
-          let suffix = 2;
-
-          while (usedIds.has(candidate) || document.getElementById(candidate)) {
-            candidate = `${base}-${suffix}`;
-            suffix += 1;
-          }
-
-          usedIds.add(candidate);
-          return candidate;
-        };
-
-        if (!headings.length) {
-          sidebar.hidden = true;
-          return;
-        }
-
-        const links = headings.map((heading) => {
-          if (!heading.id) {
-            heading.id = uniqueId(slugify(heading.textContent));
-          } else {
-            usedIds.add(heading.id);
-          }
-
-          const item = document.createElement("li");
-          item.className = "sidebar-item";
-
-          const link = document.createElement("a");
-          link.className = `sidebar-link level-${heading.tagName.slice(1)}`;
-          link.href = `#${heading.id}`;
-          link.textContent = heading.textContent;
-
-          item.appendChild(link);
-          sidebarList.appendChild(item);
-          return { heading, link };
-        });
-
-        const setActiveLink = () => {
-          const offset = 140;
-          let active = links[0];
-
-          for (const entry of links) {
-            if (entry.heading.getBoundingClientRect().top - offset <= 0) {
-              active = entry;
-            } else {
-              break;
-            }
-          }
-
-          for (const entry of links) {
-            entry.link.classList.toggle("active", entry === active);
-          }
-        };
-
-        setActiveLink();
-        document.addEventListener("scroll", setActiveLink, { passive: true });
       });
     </script>
   </head>
@@ -375,17 +396,57 @@
           <a href="{{ '/architecture/index.html' | relative_url }}">Architecture</a>
           <a href="{{ '/conventions/index.html' | relative_url }}">Conventions</a>
           <a href="{{ '/adr/index.html' | relative_url }}">ADR</a>
+          <a href="{{ '/meta/index.html' | relative_url }}">Docs System</a>
         </nav>
       </header>
 
       <main class="layout">
-        <article class="content">
+        <aside class="sidebar">
+          <div class="sidebar-brand">
+            <p class="sidebar-kicker">Documentation</p>
+            <a class="sidebar-home" href="{{ '/index.html' | relative_url }}">3-Layer Terraform Docs</a>
+          </div>
+
+          {% assign section_labels = "architecture:Architecture|conventions:Conventions|adr:ADR|meta:Documentation System" | split: "|" %}
+          {% for section_item in section_labels %}
+            {% assign section_parts = section_item | split: ":" %}
+            {% assign section_key = section_parts[0] %}
+            {% assign section_title = section_parts[1] %}
+            {% assign section_pages = site.pages | where: "doc_section", section_key | sort: "nav_order" %}
+            {% if section_pages.size > 0 %}
+              <section class="sidebar-section">
+                <p class="sidebar-title">{{ section_title }}</p>
+                <ul class="sidebar-list">
+                  {% assign root_pages = section_pages | where_exp: "item", "item.nav_parent == nil" %}
+                  {% for nav_page in root_pages %}
+                    <li class="sidebar-item">
+                      <a class="sidebar-link{% if page.url == nav_page.url %} active{% endif %}" href="{{ nav_page.url | relative_url }}">{{ nav_page.nav_title | default: nav_page.title }}</a>
+                    </li>
+                    {% assign child_pages = section_pages | where: "nav_parent", nav_page.nav_key | sort: "nav_order" %}
+                    {% for child in child_pages %}
+                      <li class="sidebar-item">
+                        <a class="sidebar-link child{% if page.url == child.url %} active{% endif %}" href="{{ child.url | relative_url }}">{{ child.nav_title | default: child.title }}</a>
+                      </li>
+                    {% endfor %}
+                  {% endfor %}
+                </ul>
+              </section>
+            {% endif %}
+          {% endfor %}
+        </aside>
+
+        <article class="content{% if page.page_kind == 'portal-home' %} content-home{% endif %}">
+          {% if page.title %}
+            <header class="page-hero">
+              <p class="page-kicker">{{ page.hero_kicker | default: "Terraform 3-Layer Documentation" }}</p>
+              <h1>{{ page.title }}</h1>
+              {% if page.description %}
+                <p class="page-description">{{ page.description }}</p>
+              {% endif %}
+            </header>
+          {% endif %}
           {{ content }}
         </article>
-        <aside class="sidebar" data-page-sidebar>
-          <p class="sidebar-title">On This Page</p>
-          <ul class="sidebar-list" data-page-sidebar-list></ul>
-        </aside>
       </main>
 
       <footer>

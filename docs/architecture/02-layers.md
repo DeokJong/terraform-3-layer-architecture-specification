@@ -1,3 +1,10 @@
+---
+title: Layers
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 4
+---
+
 # Layers
 
 ## Layer 개요
@@ -94,3 +101,4 @@
 ## 다음 문서
 
 - [Contracts](./03-contracts.md)
+

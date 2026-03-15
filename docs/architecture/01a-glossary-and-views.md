@@ -1,3 +1,10 @@
+---
+title: Glossary and Views
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 3
+---
+
 # Glossary and Views
 
 ## 용어집
@@ -78,3 +85,4 @@ flowchart TB
 ## 다음 문서
 
 - [Layers](./02-layers.md)
+

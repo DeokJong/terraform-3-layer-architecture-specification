@@ -1,3 +1,10 @@
+---
+title: Layer Classification Convention
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 2
+---
+
 # Layer Classification Convention
 
 ## Foundation
@@ -32,3 +39,4 @@
 - 특정 서비스와 함께 배포된다.
 - 특정 서비스 장애/롤백 단위에 속한다.
 - 특정 서비스만을 위한 설정 또는 엔드포인트다.
+

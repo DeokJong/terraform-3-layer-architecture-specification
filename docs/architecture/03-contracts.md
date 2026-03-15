@@ -1,3 +1,10 @@
+---
+title: Contracts
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 5
+---
+
 # Contracts
 
 ## Contract 정의
@@ -197,3 +204,4 @@ breaking 여부는 `consumer 수정이 필요한가`와 `기존 의미가 유지
 ## 다음 문서
 
 - [Ownership and References](./04-ownership-and-references.md)
+

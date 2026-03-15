@@ -1,3 +1,10 @@
+---
+title: Ownership and References
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 6
+---
+
 # Ownership and References
 
 ## 리소스 ownership 판단 기준
@@ -68,3 +75,4 @@ Contract ownership은 아래 기준으로 결정합니다.
 ## 다음 문서
 
 - [Workspace Model](./05-workspace-model.md)
+

@@ -1,4 +1,11 @@
-﻿# Migration and Rollout Scenarios
+---
+title: Migration and Rollout Scenarios
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 14
+---
+
+# Migration and Rollout Scenarios
 
 ## Contract Migration
 
@@ -60,3 +67,4 @@ Recommended sequence:
 2. Reinterpret provider ownership under the new rules.
 3. Route new consumers to the new contract model.
 4. Migrate existing consumers gradually.
+

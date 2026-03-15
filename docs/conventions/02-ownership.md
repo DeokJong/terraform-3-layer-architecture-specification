@@ -1,3 +1,10 @@
+---
+title: Ownership Convention
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 3
+---
+
 # Ownership Convention
 
 ## ownership 판단 규칙
@@ -15,3 +22,4 @@
 - 값이 어디 저장되는가
 - 어떤 도구로 전달되는가
 - 현재 코드가 어느 workspace에 들어 있는가
+

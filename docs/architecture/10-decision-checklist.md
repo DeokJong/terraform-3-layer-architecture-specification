@@ -1,3 +1,10 @@
+---
+title: Decision Checklist
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 12
+---
+
 # Decision Checklist
 
 새 리소스 또는 Contract 추가 시 아래 순서로 판단합니다.
@@ -14,3 +21,4 @@
 - [Safety and Resilience](./09-safety-and-resilience.md)
 - [Conventions Overview](../conventions/index.md)
 - [ADR-0001](../adr/adr-0001-3layer-architecture-contract-workspace.md)
+

@@ -1,3 +1,10 @@
+---
+title: Contract Convention
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 4
+---
+
 # Contract Convention
 
 ## 설계 원칙
@@ -49,3 +56,4 @@
 - publication 방식
 - source of truth
 - breaking change 절차
+

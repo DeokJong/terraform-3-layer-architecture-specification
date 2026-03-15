@@ -1,4 +1,14 @@
-﻿# Architecture
+---
+title: Architecture
+description: 3계층 Terraform 모델의 구조, 책임, 참조 규칙, workspace 분리 기준을 설명하는 기술 명세 섹션입니다.
+hero_kicker: Section Overview
+doc_section: architecture
+nav_key: architecture-index
+nav_title: Overview
+nav_order: 1
+---
+
+# Architecture
 
 이 섹션은 3계층 Terraform 구조의 아키텍처 기술 명세입니다.
 
@@ -25,13 +35,12 @@
 12. [Shared Resource Design Template](./11-shared-resource-design-template.md)
 13. [Migration and Rollout Scenarios](./12-migration-and-rollout-scenarios.md)
 
-## 핵심 문서
+## 어떻게 읽으면 좋은가
 
-- 구조 개요: [Overview](./01-overview.md)
-- 용어와 다이어그램: [Glossary and Views](./01a-glossary-and-views.md)
-- 핵심 의존 모델: [Contracts](./03-contracts.md)
-- 분리 판단: [Workspace Model](./05-workspace-model.md)
-- 안정성 기준: [Safety and Resilience](./09-safety-and-resilience.md)
+- 구조 개요부터 보려면 [Overview](./01-overview.md)와 [Glossary and Views](./01a-glossary-and-views.md)부터 읽습니다.
+- 설계 경계 판단이 목적이면 [Contracts](./03-contracts.md), [Ownership and References](./04-ownership-and-references.md), [Workspace Model](./05-workspace-model.md)을 먼저 봅니다.
+- 운영 안정성이 목적이면 [Operations](./08-operations.md)와 [Safety and Resilience](./09-safety-and-resilience.md)를 우선 읽습니다.
+- 새 shared capability를 설계하려면 [Shared Resource Design Template](./11-shared-resource-design-template.md)와 [Migration and Rollout Scenarios](./12-migration-and-rollout-scenarios.md)를 같이 봅니다.
 
 ## 관련 문서
 

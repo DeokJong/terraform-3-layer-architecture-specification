@@ -1,3 +1,10 @@
+---
+title: Shared Resource Design Template
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 13
+---
+
 # Shared Resource Design Template
 
 새 shared resource를 설계할 때 사용하는 표준 템플릿입니다.
@@ -49,3 +56,4 @@
 ## Next
 
 - [Migration and Rollout Scenarios](./12-migration-and-rollout-scenarios.md)
+

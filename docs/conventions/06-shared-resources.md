@@ -1,3 +1,10 @@
+---
+title: Shared Resource Convention
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 7
+---
+
 # Shared Resource Convention
 
 ## Resource Set 우선 규칙
@@ -52,3 +59,4 @@ Redis Resource Set:
 
 - `shared-cache`
 - 필요 시 `shared-cache-core`, `shared-cache-access`, `shared-cache-publication`
+

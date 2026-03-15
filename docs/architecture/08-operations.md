@@ -1,3 +1,10 @@
+---
+title: Operations
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 10
+---
+
 # Operations
 
 ## 변경 전파
@@ -58,3 +65,4 @@ shared resource나 service interface를 새로 만들 때는 최소한 아래를
 ## 다음 문서
 
 - [Decision Checklist](./10-decision-checklist.md)
+

@@ -1,3 +1,10 @@
+---
+title: Workspace Convention
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 5
+---
+
 # Workspace Convention
 
 ## 설계 원칙
@@ -59,3 +66,4 @@
 - "consumer onboarding이 잦으면 binding 분리를 먼저 본다"
 - "contract migration이 보이면 publication 분리를 본다"
 - "rollback 단위가 다르면 workspace를 분리한다"
+

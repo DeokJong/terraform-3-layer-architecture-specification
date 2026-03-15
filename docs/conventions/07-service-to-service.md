@@ -1,3 +1,10 @@
+---
+title: Service-to-Service Convention
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 8
+---
+
 # Service-to-Service Convention
 
 - Service는 다른 Service implementation을 직접 참조하지 않는다.
@@ -9,3 +16,4 @@
 - 다른 서비스 ALB physical DNS 직접 사용
 - 다른 서비스 Secret path 직접 참조
 - 다른 서비스 내부 bucket path 직접 의존
+

@@ -1,3 +1,10 @@
+---
+title: Shared Resources
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 8
+---
+
 # Shared Resources
 
 ## Resource Set 우선 모델
@@ -93,3 +100,4 @@ consumer는 shared resource를 직접 변경하는 대신 access contract와 pub
 ## 다음 문서
 
 - [Service Dependencies](./07-service-dependencies.md)
+

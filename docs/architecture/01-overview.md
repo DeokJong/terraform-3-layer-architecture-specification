@@ -1,3 +1,10 @@
+---
+title: Overview
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 2
+---
+
 # Overview
 
 ## 목적
@@ -54,3 +61,4 @@
 ## 다음 문서
 
 - [Glossary and Views](./01a-glossary-and-views.md)
+

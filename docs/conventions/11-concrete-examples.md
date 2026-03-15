@@ -1,3 +1,10 @@
+---
+title: Concrete Examples
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 12
+---
+
 # Concrete Examples
 
 ## DB Example
@@ -42,3 +49,4 @@
 | Is it part of global network foundation | yes | Foundation candidate |
 | Is it a stable consumer-facing value | yes | Contract candidate |
 | Is it a physical endpoint or internal ID | yes | Implementation Value candidate |
+

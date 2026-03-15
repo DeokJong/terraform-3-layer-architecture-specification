@@ -1,3 +1,12 @@
+---
+title: Agent Instructions Source
+description: AGENTS.md와 CLAUDE.md의 canonical source로 사용하는 저장소 공통 agent guidance입니다.
+hero_kicker: Documentation Governance
+doc_section: meta
+nav_parent: meta-index
+nav_order: 2
+---
+
 # Agent Instructions Source
 
 This file is the canonical source for the repository agent guidance mirrors:
@@ -100,3 +109,4 @@ config:
   look: neo
 ---
 ```
+

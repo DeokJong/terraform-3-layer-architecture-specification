@@ -1,3 +1,10 @@
+---
+title: Safety Convention
+doc_section: conventions
+nav_parent: conventions-index
+nav_order: 10
+---
+
 # Safety Convention
 
 ## 변경 안전성
@@ -24,3 +31,4 @@
 - shared resource allowlist 변경 때문에 core 전체 apply 필요
 - 서비스 하나의 실패가 shared platform core 변경으로 전파
 - aggregation output만 남고 실제 provider contract가 흐려지는 구조
+

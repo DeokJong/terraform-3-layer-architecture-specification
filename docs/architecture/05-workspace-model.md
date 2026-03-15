@@ -1,3 +1,10 @@
+---
+title: Workspace Model
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 7
+---
+
 # Workspace Model
 
 ## Workspace 정의
@@ -136,3 +143,4 @@ Service:
 ## 다음 문서
 
 - [Shared Resources](./06-shared-resources.md)
+

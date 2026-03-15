@@ -21,6 +21,15 @@ def relative_link(path):
 
 def render(registry):
     lines = [
+        "---",
+        "title: Work Index",
+        "description: document registry에서 생성된 사람용 작업 상태 보드입니다.",
+        "hero_kicker: Documentation Governance",
+        "doc_section: meta",
+        "nav_parent: meta-index",
+        "nav_order: 3",
+        "---",
+        "",
         "# Work Index",
         "",
         "This file is generated from `docs/meta/document-registry.json`.",

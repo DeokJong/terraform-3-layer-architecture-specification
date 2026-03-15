@@ -1,3 +1,10 @@
+---
+title: Safety and Resilience
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 11
+---
+
 # Safety and Resilience
 
 ## 목표
@@ -96,3 +103,4 @@
 ## 다음 문서
 
 - [Decision Checklist](./10-decision-checklist.md)
+

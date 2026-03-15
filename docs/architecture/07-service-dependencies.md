@@ -1,3 +1,10 @@
+---
+title: Service Dependencies
+doc_section: architecture
+nav_parent: architecture-index
+nav_order: 9
+---
+
 # Service Dependencies
 
 ## 기본 원칙
@@ -42,3 +49,4 @@ Platform이 service-to-service 호출을 중개할 수는 있지만, 그 사실�
 ## 다음 문서
 
 - [Operations](./08-operations.md)
+

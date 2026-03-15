@@ -6,7 +6,7 @@
 
 ## 상태
 
-Proposed
+Accepted
 
 ## 배경
 

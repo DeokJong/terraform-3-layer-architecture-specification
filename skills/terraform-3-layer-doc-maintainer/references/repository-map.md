@@ -1,31 +1,61 @@
 # Repository Map
 
-## Canonical root documents
+This reference explains how the Terraform 3-layer documentation repository is organized and which files act as canonical or derived sources.
 
-- `README.md`: repository entry point
-- `terraform-3-layer-architecture-specification.md`: architecture technical specification
-- `terraform-3-layer-architecture-conventions.md`: implementation conventions
-- `adr-3layer-architecture-contract-workspace.md`: root ADR
+## Canonical architecture sources
 
-## Published docs
+- `terraform-3-layer-architecture-specification.md`
+  Defines the architecture meaning, layer model, contract model, workspace model, and safety rules.
+- `terraform-3-layer-architecture-conventions.md`
+  Defines implementation and review conventions derived from the architecture specification.
+- `adr-3layer-architecture-contract-workspace.md`
+  Records the architectural decision and rationale behind the 3-layer, contract, and workspace model.
+- `README.md`
+  Acts as the repository entry point and high-level navigation surface.
 
-- `docs/index.md`: public documentation portal
-- `docs/architecture/`: architecture pages
-- `docs/conventions/`: conventions pages
-- `docs/adr/`: ADR pages
+## Published portal sources
 
-## Governance and indexing
+- `docs/index.md`
+  Main landing page for the GitHub Pages portal.
+- `docs/architecture/`
+  Published chapter split of the architecture specification.
+- `docs/conventions/`
+  Published chapter split of the conventions document.
+- `docs/adr/`
+  Published ADR navigation and summary pages.
+- `docs/meta/`
+  Documentation governance and indexing pages for maintainers.
 
-- `docs/meta/document-registry.json`: machine-readable source of truth
-- `docs/meta/work-index.md`: generated human-readable work index
+## Documentation governance sources
 
-## Maintenance rule
+- `docs/meta/document-registry.json`
+  Machine-readable source of truth for tracked documents, ownership, status, and next actions.
+- `docs/meta/work-index.md`
+  Generated human-readable status board. Regenerate this after every registry change.
+- `docs/meta/agent-instructions.md`
+  Canonical source for the rendered `AGENTS.md` and `CLAUDE.md` mirrors.
 
-If a document is added, renamed, split, promoted, deprecated, or substantially rewritten, update the registry first or immediately after the edit and regenerate the work index.
+## Generated or mirrored outputs
 
-## Python tooling
+- `docs/meta/work-index.md`
+  Generated from `docs/meta/document-registry.json`.
+- `AGENTS.md`
+  Generated from `docs/meta/agent-instructions.md`.
+- `CLAUDE.md`
+  Generated from `docs/meta/agent-instructions.md`.
 
-Use the repository-local `uv` workflow for maintenance scripts.
+## Local maintenance tooling
 
-- Dependency manifest: `pyproject.toml`
-- Preferred execution: `uv run python ...`
+- `skills/terraform-3-layer-doc-maintainer/SKILL.md`
+  Repository-local maintenance skill.
+- `skills/terraform-3-layer-doc-maintainer/scripts/render_work_index.py`
+  Regenerates the work index from the registry.
+- `skills/terraform-3-layer-doc-maintainer/scripts/render_agent_files.py`
+  Regenerates `AGENTS.md` and `CLAUDE.md` from the canonical agent instructions source.
+
+## Maintenance boundaries
+
+- Edit canonical root documents first when architecture meaning changes.
+- Edit `docs/` pages when the published portal structure or chapter wording needs to be aligned with the canonical source.
+- Edit `docs/meta/document-registry.json` first when tracked scope, ownership, status, or next actions change.
+- Do not edit `docs/meta/work-index.md`, `AGENTS.md`, or `CLAUDE.md` manually unless you immediately regenerate them from their canonical source files.

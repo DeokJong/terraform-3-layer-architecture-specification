@@ -34,11 +34,18 @@ Accepted
 - Shared Resource는 Resource Set 단위로 우선 설명하고, 내부 분리는 blast radius 기준으로 선택한다.
 - 기존 자산은 legacy로 허용한다.
 
+이 결정은 다음 운영 문제를 해결하기 위한 배경에서 출발합니다.
+
+- 모놀로식 Terraform Workspace에 리소스가 과도하게 집약되어 lock 경합이 심하다.
+- 한 환경에서 PR 하나가 lock을 잡으면 다른 PR은 Plan조차 수행하지 못한다.
+- SSM Parameter처럼 리소스 수가 많은 영역은 Plan만으로도 약 5분이 걸릴 수 있다.
+- Lambda는 SLS Stack으로 별도 관리되고 있어 Terraform 구조와 관리 주제가 이미 분리되어 있다.
+
 ## 영향 받은 참고 자료
 
 이 ADR은 HashiCorp 자료인 [Happy Terraforming! Real-world experience and proven best practices](https://www.hashicorp.com/en/resources/terraforming-real-world-experience-best-practices)를 중요한 참고 자료로 사용합니다.
 
-이 저장소의 ADR은 이를 그대로 복제하지 않고 `Foundation / Platform / Service`, `Contract`, `Workspace`, `Resource Set` 개념으로 확장해 재정의합니다.
+이 저장소의 ADR은 이를 그대로 복제하지 않고 현재 운영 문제를 설명할 수 있도록 `Foundation / Platform / Service`, `Contract`, `Workspace`, `Resource Set` 개념으로 확장해 재정의합니다.
 
 ## 상세 기록
 

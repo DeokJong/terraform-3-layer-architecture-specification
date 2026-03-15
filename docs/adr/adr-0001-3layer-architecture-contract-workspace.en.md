@@ -34,6 +34,13 @@ This ADR records the following decisions:
 - Shared resources are explained first as Resource Sets, then split internally only when blast radius or churn requires it.
 - Existing assets are treated as legacy and migrated gradually.
 
+This decision set starts from concrete operating problems:
+
+- some environments are still concentrated into monolithic Terraform Workspaces, causing heavy lock contention
+- when one PR holds the lock for an environment, other PRs cannot even start `plan` for that same environment
+- high-cardinality areas such as SSM Parameters can make one `plan` take around five minutes on their own
+- Lambda workloads are already split into separate Serverless Framework stacks, so Terraform scope and deployment scope are already partially decoupled
+
 ## Rationale
 
 The repository needed a clearer model for:
@@ -42,12 +49,15 @@ The repository needed a clearer model for:
 - ownership of published values such as SSM, Route53, and Secrets Manager entries
 - Workspace splitting rules
 - safer service-to-service dependency handling
+- better parallel validation by reducing lock contention
+- lower review latency for small changes in large Workspaces
+- clearer documentation of the boundary between Terraform-managed infrastructure and SLS-managed stacks
 
 The target was not a forced big-bang rename. The goal was to provide a practical model for future design and migration.
 
 ## Reference material
 
-This ADR uses HashiCorp's [Happy Terraforming! Real-world experience and proven best practices](https://www.hashicorp.com/en/resources/terraforming-real-world-experience-best-practices) as an important reference, but adapts it to this repository's `Foundation / Platform / Service`, `Contract`, `Workspace`, and `Resource Set` vocabulary.
+This ADR uses HashiCorp's [Happy Terraforming! Real-world experience and proven best practices](https://www.hashicorp.com/en/resources/terraforming-real-world-experience-best-practices) as an important reference while restructuring the current repository context. It does not copy that material directly. Instead, it re-expresses the operating problems and legacy constraints of this repository through the `Foundation / Platform / Service`, `Contract`, `Workspace`, and `Resource Set` vocabulary.
 
 ## Detailed record
 

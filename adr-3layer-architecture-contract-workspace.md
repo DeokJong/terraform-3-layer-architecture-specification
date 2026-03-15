@@ -12,6 +12,12 @@ Accepted
 
 현재 인프라는 여러 서비스와 공유 리소스가 혼재된 상태로 운영되고 있으며, 레이어 간 참조, 공유 리소스 ownership, SSM/Route53/Secret 같은 publication surface의 책임, Terraform Workspace 분리 기준이 일관되게 정리되어 있지 않습니다.
 
+또한 일부 환경은 모놀로식 Terraform Workspace에 과도하게 많은 리소스가 집약되어 있습니다. 이 구조에서는 한 환경에 대한 변경 PR이 올라와 Terraform lock이 잡히면 다른 PR은 같은 환경에 대해 Plan조차 수행하지 못합니다. 그 결과 변경 검증이 직렬화되고, 리뷰와 배포 대기 시간이 길어집니다.
+
+특히 SSM Parameter처럼 개수가 매우 많은 리소스는 Plan 자체만으로도 수 분이 소요됩니다. 실제 운영에서는 특정 환경의 Plan만 약 5분 정도 걸리는 경우가 있으며, lock 대기와 결합되면 작은 변경도 빠르게 검증하기 어렵습니다.
+
+반면 Lambda 계열은 이미 Serverless Framework Stack으로 분리 관리되고 있어, Terraform이 관리하는 주제와 별도 배포 단위가 혼재되어 있습니다. 즉 현재 상태는 "모든 것을 한 Workspace에 둔 단순한 구조"도 아니고, 그렇다고 ownership과 운영 경계를 기준으로 정리된 구조도 아닙니다.
+
 이로 인해 다음 문제가 반복됩니다.
 
 - 상위 레이어 변경이 과도하게 하위 레이어 변경으로 전파된다.
@@ -19,10 +25,13 @@ Accepted
 - SSM, Route53 Record, Secret 같은 publication 매체와 ownership이 혼동된다.
 - Terraform Workspace가 지나치게 비대해지거나, 반대로 변경 경계 없이 쪼개져 blast radius가 커진다.
 - Service 간 직접 참조가 누적되어 강결합이 발생한다.
+- lock 경합 때문에 같은 환경의 변경 검증이 병렬화되지 못한다.
+- 리소스 수가 많은 workspace는 Plan 비용 자체가 커져 작은 변경도 느리게 검증된다.
+- Terraform과 SLS Stack의 관리 경계가 문서로 정리되지 않아 ownership과 운영 주제가 혼동된다.
 
 이 ADR의 목표는 기존 자산을 즉시 전면 재구성하는 것이 아니라, legacy를 허용하면서도 이후 설계와 migration을 일관되게 판단할 기준을 제공하는 것입니다.
 
-이 ADR은 HashiCorp의 [Happy Terraforming! Real-world experience and proven best practices](https://www.hashicorp.com/en/resources/terraforming-real-world-experience-best-practices)를 중요한 참고 자료로 사용합니다. 다만 이 저장소는 이를 그대로 복제하지 않고 현재 문맥에 맞게 `Foundation / Platform / Service`, `Contract`, `Workspace`, `Resource Set` 개념으로 재구성합니다.
+이 ADR은 구조를 다시 파악하는 과정에서 HashiCorp의 [Happy Terraforming! Real-world experience and proven best practices](https://www.hashicorp.com/en/resources/terraforming-real-world-experience-best-practices)를 중요한 참고 자료로 삼았습니다. 다만 이 저장소는 해당 내용을 그대로 복제하지 않고, 현재 운영 문제와 legacy 조건에 맞게 `Foundation / Platform / Service`, `Contract`, `Workspace`, `Resource Set` 개념으로 재구성해 문서화합니다.
 
 ## 결정
 

@@ -32,6 +32,9 @@
       <a href="{{ .RelPermalink }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
     {{- else -}}
       {{- $repoPath := replaceRE "^(\\.\\./)+" "" $resolved -}}
+      {{- if and $sourceDir (not (hasPrefix $resolved "../")) (not (hasPrefix $repoPath "docs/")) -}}
+        {{- $repoPath = printf "docs/%s" $repoPath -}}
+      {{- end -}}
       <a href="{{ site.Params.repoContentBase }}/{{ $repoPath }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
     {{- end -}}
   {{- else if or (eq $resolved "meta/document-registry.json") (hasSuffix $resolved "/document-registry.json") -}}

@@ -28,7 +28,7 @@ This portal provides English entry points for the `Foundation`, `Platform`, and 
     <p>Introduces the architecture structure, scope, and the main design boundaries of the 3-layer model.</p>
     <ul>
       <li><a href="./architecture/">Section overview</a></li>
-      <li><a href="../terraform-3-layer-architecture-specification.md">Canonical specification</a></li>
+      <li><a href="https://github.com/DeokJong/terraform-3-layer-architecture-specification/blob/main/terraform-3-layer-architecture-specification.md">Canonical specification</a></li>
     </ul>
   </section>
   <section class="home-card">
@@ -36,7 +36,7 @@ This portal provides English entry points for the `Foundation`, `Platform`, and 
     <p>Summarizes the implementation conventions used to turn the architecture model into repeatable Terraform practice.</p>
     <ul>
       <li><a href="./conventions/">Section overview</a></li>
-      <li><a href="../terraform-3-layer-architecture-conventions.md">Canonical conventions</a></li>
+      <li><a href="https://github.com/DeokJong/terraform-3-layer-architecture-specification/blob/main/terraform-3-layer-architecture-conventions.md">Canonical conventions</a></li>
     </ul>
   </section>
   <section class="home-card">
@@ -44,7 +44,7 @@ This portal provides English entry points for the `Foundation`, `Platform`, and 
     <p>Explains the architectural decision record structure and where the primary rationale is documented.</p>
     <ul>
       <li><a href="./adr/">Section overview</a></li>
-      <li><a href="../adr-3layer-architecture-contract-workspace.md">Canonical ADR-0001</a></li>
+      <li><a href="https://github.com/DeokJong/terraform-3-layer-architecture-specification/blob/main/adr-3layer-architecture-contract-workspace.md">Canonical ADR-0001</a></li>
     </ul>
   </section>
   <section class="home-card">

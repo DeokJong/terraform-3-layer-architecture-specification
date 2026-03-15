@@ -9,7 +9,7 @@
 - Contract와 Workspace를 어떻게 다뤄야 하는지 명확히 한다.
 - 안전성과 운영 관점까지 포함해 설계 판단 기준을 제공한다.
 
-## 권장 읽기 순서
+## 챕터
 
 1. [Overview](./01-overview.md)
 2. [Glossary and Views](./01a-glossary-and-views.md)

@@ -67,7 +67,7 @@ These files support the GitHub Pages reading experience.
 - Owner: docs-portal
 - Status: `stable`
 - Next actions:
-  - Keep reading order aligned with canonical specification and scenario/template pages.
+  - Keep chapter structure aligned with canonical specification and scenario/template pages.
 
 ### [Convention Pages](../conventions/index.md)
 

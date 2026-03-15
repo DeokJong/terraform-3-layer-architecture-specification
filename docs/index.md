@@ -10,9 +10,9 @@
 - 실제 구현 시 적용할 Convention과 리뷰 체크리스트
 - 이 구조를 왜 채택했는지에 대한 ADR
 
-## 먼저 읽을 문서
+## 핵심 챕터
 
-처음 읽는 경우 아래 순서를 권장합니다.
+처음 보는 경우 아래 챕터 순서대로 읽으면 됩니다.
 
 1. [Overview](./architecture/01-overview.md)
 2. [Glossary and Views](./architecture/01a-glossary-and-views.md)

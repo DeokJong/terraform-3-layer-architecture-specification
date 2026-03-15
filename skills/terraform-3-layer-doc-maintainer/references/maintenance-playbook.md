@@ -19,6 +19,19 @@ Prefer these improvements when strengthening the documentation:
 - `docs/` republishes and reorganizes for reading
 - registry tracks status, scope, and next actions across all document families
 
+## Diagram rule
+
+- every Mermaid block must include this config header directly under ````mermaid````:
+
+```yaml
+---
+config:
+  layout: fixed
+  theme: redux
+  look: neo
+---
+```
+
 ## Progress tracking model
 
 Use these status values in the registry:

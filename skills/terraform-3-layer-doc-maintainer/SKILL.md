@@ -34,6 +34,16 @@ Use the repository documentation system, not ad hoc edits.
 - Keep the human-facing `docs/meta/work-index.md` in sync by regenerating it.
 - Prefer adding reusable structure such as templates, matrices, diagrams, and operating procedures over adding broad prose.
 - When adding a new document family or section, register it in the registry immediately.
+- Every Mermaid block must include this config header directly under ````mermaid````:
+
+```yaml
+---
+config:
+  layout: fixed
+  theme: redux
+  look: neo
+---
+```
 
 ## Script
 

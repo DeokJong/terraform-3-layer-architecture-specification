@@ -64,3 +64,13 @@ Use the repository skill when the task is about strengthening, restructuring, in
 - Do not duplicate the same rule across many files unless the duplication is intentional and tracked in the registry.
 - Prefer improving structure, examples, templates, and decision support over adding abstract prose.
 - Keep docs optimized for Codex maintenance as well as human reading.
+- Every Mermaid block must include this config header directly under ````mermaid````:
+
+```yaml
+---
+config:
+  layout: fixed
+  theme: redux
+  look: neo
+---
+```

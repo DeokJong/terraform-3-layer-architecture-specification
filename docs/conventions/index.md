@@ -8,7 +8,7 @@
 - naming, ownership, contract, workspace 설계 기준을 일관되게 만든다.
 - 리뷰와 운영 시 반복적으로 확인할 기준을 제공한다.
 
-## 추천 읽기 순서
+## 챕터
 
 1. [Layer Classification](./01-layer-classification.md)
 2. [Ownership](./02-ownership.md)

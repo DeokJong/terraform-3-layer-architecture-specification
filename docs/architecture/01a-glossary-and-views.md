@@ -20,6 +20,12 @@
 ## 시스템 뷰
 
 ```mermaid
+---
+config:
+  layout: fixed
+  theme: redux
+  look: neo
+---
 flowchart LR
     F[Foundation]
     P[Platform]
@@ -35,6 +41,12 @@ flowchart LR
 ## Workspace 관점 뷰
 
 ```mermaid
+---
+config:
+  layout: fixed
+  theme: redux
+  look: neo
+---
 flowchart TB
     subgraph Foundation
         FN[foundation-network-core]

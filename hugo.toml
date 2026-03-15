@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://deokjong.github.io/terraform-3-layer-architecture-specification/"
 languageCode = "ko-kr"
 title = "3-Layer Terraform Documentation"
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]

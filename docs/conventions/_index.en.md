@@ -25,6 +25,10 @@ Use the root conventions document for the full English guidance:
 
 - [Terraform 3-Layer Architecture Conventions](../../terraform-3-layer-architecture-conventions.md)
 
-## Korean portal chapters
+## Suggested order
 
-Detailed convention pages in the published portal are currently maintained in Korean first. Switch to `KO` when you need the chapter-level portal view.
+1. [Layer Classification](./01-layer-classification.md)
+2. [Ownership](./02-ownership.md)
+3. [Contracts](./03-contracts.md)
+4. [Workspaces](./04-workspaces.md)
+5. [Review Checklist](./10-review-checklist.md)

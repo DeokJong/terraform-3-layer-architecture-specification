@@ -18,6 +18,6 @@ Use the root ADR for the full English decision record:
 
 - [ADR-0001: 3-Layer Architecture and Contract / Workspace Model](../../adr-3layer-architecture-contract-workspace.md)
 
-## Korean portal publishing
+## Published ADR page
 
-The published portal ADR pages are currently maintained in Korean first. Switch to `KO` when you need the portal-local ADR page.
+- [ADR-0001 Published Page](./adr-0001-3layer-architecture-contract-workspace.md)

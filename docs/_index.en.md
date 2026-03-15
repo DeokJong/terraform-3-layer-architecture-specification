@@ -7,11 +7,11 @@ nav_title: Home
 nav_order: 1
 ---
 
-This portal provides English entry points for the `Foundation`, `Platform`, and `Service` 3-layer model. Full chapter-by-chapter portal translation is still in progress, so the English experience focuses on section overviews, generated status pages, and the canonical root documents.
+This portal provides the full English documentation path for the `Foundation`, `Platform`, and `Service` 3-layer model. Architecture rules, implementation conventions, ADRs, and documentation governance are available through the same Hugo portal structure as the Korean site.
 
 ## Available in English
 
-- Section landing pages for Architecture, Conventions, ADR, and Documentation System
+- Section landing pages and detailed chapter pages
 - The generated [Work Index](./meta/work-index/)
 - Canonical root documents in the repository
 
@@ -58,8 +58,8 @@ This portal provides English entry points for the `Foundation`, `Platform`, and 
   </section>
 </div>
 
-## Translation Status
+## Reading Guide
 
-- Detailed portal chapters are currently published first in Korean.
-- Use the language switcher to move back to Korean when you need the full page-level portal content.
-- The canonical root documents remain the primary English source for architecture meaning and conventions.
+- Use the Architecture section for the conceptual model and decision rules.
+- Use the Conventions section for repeatable implementation guidance.
+- Use ADR for decision context and the Documentation System section for maintenance workflow.

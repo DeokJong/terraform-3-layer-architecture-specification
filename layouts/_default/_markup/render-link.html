@@ -28,7 +28,14 @@
   {{- if eq $candidate "_index.md" -}}
     <a href="{{ site.Home.RelPermalink }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
   {{- else if hasSuffix $candidate ".md" -}}
-    {{- with .Page.GetPage $candidate -}}
+    {{- $page := .Page.GetPage $candidate -}}
+    {{- if not $page -}}
+      {{- $page = site.GetPage $candidate -}}
+    {{- end -}}
+    {{- if not $page -}}
+      {{- $page = site.GetPage (printf "/%s" (replaceRE "\\.md$" "" $candidate)) -}}
+    {{- end -}}
+    {{- with $page -}}
       <a href="{{ .RelPermalink }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
     {{- else -}}
       {{- $repoPath := replaceRE "^(\\.\\./)+" "" $resolved -}}

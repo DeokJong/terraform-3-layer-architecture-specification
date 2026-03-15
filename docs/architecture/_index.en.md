@@ -10,7 +10,7 @@ nav_order: 1
 
 # Architecture
 
-This section summarizes how the 3-layer Terraform model is structured and where to find the canonical English architecture definition.
+This section explains how the 3-layer Terraform model is structured and how the detailed chapter set should be read.
 
 ## What this section covers
 
@@ -25,9 +25,14 @@ Use the root specification for the full English architecture text:
 
 - [Terraform 3-Layer Architecture Specification](../../terraform-3-layer-architecture-specification.md)
 
-## Korean portal chapters
+## Suggested order
 
-Detailed chapter pages in the published portal are currently maintained in Korean first. Switch to `KO` when you need the page-by-page portal flow.
+1. [Overview](./01-overview.md)
+2. [Glossary and Views](./01a-glossary-and-views.md)
+3. [Layers](./02-layers.md)
+4. [Contracts](./03-contracts.md)
+5. [Workspace Model](./05-workspace-model.md)
+6. [Safety and Resilience](./09-safety-and-resilience.md)
 
 ## Related sections
 

@@ -1,5 +1,5 @@
 ---
-title: Ownership Convention
+title: 소유권 규약
 doc_section: conventions
 nav_parent: conventions-index
 nav_order: 3

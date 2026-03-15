@@ -3,6 +3,26 @@ languageCode = "ko-kr"
 title = "3-Layer Terraform Documentation"
 disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 contentDir = "docs"
+defaultContentLanguage = "ko"
+defaultContentLanguageInSubdir = false
+cleanDestinationDir = true
+
+[languages]
+  [languages.ko]
+    languageCode = "ko-kr"
+    languageName = "KO"
+    title = "3-Layer Terraform Documentation"
+    weight = 1
+    [languages.ko.params]
+      description = "Architecture specification, conventions, ADRs, and governance docs for a 3-layer Terraform model"
+
+  [languages.en]
+    languageCode = "en-us"
+    languageName = "EN"
+    title = "3-Layer Terraform Documentation"
+    weight = 2
+    [languages.en.params]
+      description = "Architecture specification, conventions, ADRs, and governance docs for a 3-layer Terraform model"
 
 [markup]
   [markup.goldmark]

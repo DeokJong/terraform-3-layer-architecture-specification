@@ -28,7 +28,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.154.3"
+          hugo-version: "0.157.0"
           extended: true
 
       - name: Setup Python
@@ -45,7 +45,7 @@ jobs:
           uv run python skills/terraform-3-layer-doc-maintainer/scripts/render_agent_files.py
 
       - name: Build Hugo site
-        run: hugo --minify
+        run: hugo --minify --cleanDestinationDir
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

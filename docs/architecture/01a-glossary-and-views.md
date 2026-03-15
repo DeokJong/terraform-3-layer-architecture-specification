@@ -1,5 +1,5 @@
 ---
-title: Glossary and Views
+title: 용어집과 뷰
 doc_section: architecture
 nav_parent: architecture-index
 nav_order: 3

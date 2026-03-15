@@ -1,9 +1,9 @@
 sections:
   - key: architecture
-    title: Architecture
+    title_key: nav_architecture
   - key: conventions
-    title: Conventions
+    title_key: nav_conventions
   - key: adr
-    title: ADR
+    title_key: nav_adr
   - key: meta
-    title: Documentation System
+    title_key: nav_docs_system

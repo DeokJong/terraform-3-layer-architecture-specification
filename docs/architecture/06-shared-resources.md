@@ -1,5 +1,5 @@
 ---
-title: Shared Resources
+title: 공유 리소스
 doc_section: architecture
 nav_parent: architecture-index
 nav_order: 8

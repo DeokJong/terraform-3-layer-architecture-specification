@@ -1,5 +1,5 @@
 ---
-title: Workspace Convention
+title: 워크스페이스 규약
 doc_section: conventions
 nav_parent: conventions-index
 nav_order: 5

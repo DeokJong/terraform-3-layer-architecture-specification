@@ -1,6 +1,6 @@
 ---
-title: 에이전트 지침 원본
-description: AGENTS.md와 CLAUDE.md의 canonical source로 사용하는 저장소 공통 agent guidance입니다.
+title: Agent Instructions Source
+description: Canonical source for the repository-specific AGENTS.md and CLAUDE.md instruction mirrors.
 hero_kicker: Documentation Governance
 doc_section: meta
 nav_parent: meta-index
@@ -94,7 +94,7 @@ uv run python skills/terraform-3-layer-doc-maintainer/scripts/render_work_index.
 
 ## Skill
 
-Use the repository skill when the task is about strengthening, restructuring, indexing, or maintaining the architecture documentation system:
+Use the repository skill when the task is about strengthening, restructuring, indexing, or maintaining the documentation system:
 
 - `skills/terraform-3-layer-doc-maintainer/SKILL.md`
 
@@ -114,4 +114,3 @@ config:
   look: neo
 ---
 ```
-

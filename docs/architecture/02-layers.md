@@ -1,5 +1,5 @@
 ---
-title: Layers
+title: 계층
 doc_section: architecture
 nav_parent: architecture-index
 nav_order: 4

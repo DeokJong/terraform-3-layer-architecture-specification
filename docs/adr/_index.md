@@ -4,7 +4,7 @@ description: 3계층 Terraform 구조와 contract/workspace 모델을 채택한 
 hero_kicker: Section Overview
 doc_section: adr
 nav_key: adr-index
-nav_title: Overview
+nav_title: 개요
 nav_order: 1
 ---
 

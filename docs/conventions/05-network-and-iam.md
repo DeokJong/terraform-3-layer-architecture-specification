@@ -1,5 +1,5 @@
 ---
-title: Network and IAM Convention
+title: 네트워크와 IAM 규약
 doc_section: conventions
 nav_parent: conventions-index
 nav_order: 6

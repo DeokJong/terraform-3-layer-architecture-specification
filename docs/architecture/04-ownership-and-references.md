@@ -1,5 +1,5 @@
 ---
-title: Ownership and References
+title: 소유권과 참조
 doc_section: architecture
 nav_parent: architecture-index
 nav_order: 6

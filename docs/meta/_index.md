@@ -1,10 +1,10 @@
 ---
-title: Documentation System
+title: 문서 시스템
 description: 문서 registry, work index, agent guidance를 포함해 저장소의 문서 유지보수 체계를 관리하는 메타 섹션입니다.
 hero_kicker: Section Overview
 doc_section: meta
 nav_key: meta-index
-nav_title: Overview
+nav_title: 개요
 nav_order: 1
 ---
 

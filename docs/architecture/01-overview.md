@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: 개요
 doc_section: architecture
 nav_parent: architecture-index
 nav_order: 2

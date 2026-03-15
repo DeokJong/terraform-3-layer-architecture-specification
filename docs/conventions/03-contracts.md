@@ -1,5 +1,5 @@
 ---
-title: Contract Convention
+title: 계약 규약
 doc_section: conventions
 nav_parent: conventions-index
 nav_order: 4

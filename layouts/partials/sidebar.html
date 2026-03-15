@@ -1,7 +1,7 @@
 <aside class="sidebar">
   <div class="sidebar-brand">
-    <p class="sidebar-kicker">Documentation</p>
-    <a class="sidebar-home" href="{{ site.Home.RelPermalink }}">3-Layer Terraform Docs</a>
+    <p class="sidebar-kicker">{{ i18n "sidebar_kicker" }}</p>
+    <a class="sidebar-home" href="{{ site.Home.RelPermalink }}">{{ i18n "sidebar_home" }}</a>
   </div>
 
   {{ $current := . }}
@@ -10,7 +10,7 @@
     {{ if $root }}
       {{ $children := sort (where site.RegularPages "Params.doc_section" .key) "Params.nav_order" }}
       <section class="sidebar-section">
-        <p class="sidebar-title">{{ .title }}</p>
+        <p class="sidebar-title">{{ i18n .title_key }}</p>
         <ul class="sidebar-list">
           <li class="sidebar-item">
             <a class="sidebar-link{{ if eq $current.RelPermalink $root.RelPermalink }} active{{ end }}" href="{{ $root.RelPermalink }}">{{ $root.Params.nav_title | default $root.Title }}</a>

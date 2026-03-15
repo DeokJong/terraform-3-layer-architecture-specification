@@ -1,5 +1,5 @@
 ---
-title: Shared Resource Design Template
+title: 공유 리소스 설계 템플릿
 doc_section: architecture
 nav_parent: architecture-index
 nav_order: 13

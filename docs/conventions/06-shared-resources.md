@@ -1,5 +1,5 @@
 ---
-title: Shared Resource Convention
+title: 공유 리소스 규약
 doc_section: conventions
 nav_parent: conventions-index
 nav_order: 7

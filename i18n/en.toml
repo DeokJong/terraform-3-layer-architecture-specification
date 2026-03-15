@@ -1,0 +1,26 @@
+[nav_architecture]
+other = "Architecture"
+
+[nav_conventions]
+other = "Conventions"
+
+[nav_adr]
+other = "ADR"
+
+[nav_docs_system]
+other = "Docs System"
+
+[sidebar_kicker]
+other = "Documentation"
+
+[sidebar_home]
+other = "3-Layer Terraform Docs"
+
+[language_switcher]
+other = "Language switcher"
+
+[default_hero_kicker]
+other = "Documentation Portal"
+
+[footer_published_from]
+other = "Published from /docs via Hugo and GitHub Pages"

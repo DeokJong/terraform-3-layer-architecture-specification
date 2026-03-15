@@ -1,5 +1,5 @@
 ---
-title: Safety and Resilience
+title: 안전성과 복원력
 doc_section: architecture
 nav_parent: architecture-index
 nav_order: 11

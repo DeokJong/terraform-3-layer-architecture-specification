@@ -1,5 +1,5 @@
 ---
-title: Layer Classification Convention
+title: 레이어 분류 규약
 doc_section: conventions
 nav_parent: conventions-index
 nav_order: 2

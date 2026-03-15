@@ -1,10 +1,10 @@
 ---
-title: Conventions
+title: 규약
 description: 3계층 아키텍처를 실제 Terraform 코드와 운영 구조에 적용할 때 반복적으로 사용하는 naming, ownership, contract, workspace 규칙입니다.
 hero_kicker: Section Overview
 doc_section: conventions
 nav_key: conventions-index
-nav_title: Overview
+nav_title: 개요
 nav_order: 1
 ---
 
@@ -20,17 +20,17 @@ nav_order: 1
 
 ## 챕터
 
-1. [Layer Classification](./01-layer-classification.md)
-2. [Ownership](./02-ownership.md)
-3. [Contracts](./03-contracts.md)
-4. [Workspaces](./04-workspaces.md)
-5. [Network and IAM](./05-network-and-iam.md)
-6. [Shared Resources](./06-shared-resources.md)
-7. [Service-to-Service](./07-service-to-service.md)
-8. [Legacy](./08-legacy.md)
-9. [Safety](./09-safety.md)
-10. [Review Checklist](./10-review-checklist.md)
-11. [Concrete Examples](./11-concrete-examples.md)
+1. [레이어 분류](./01-layer-classification.md)
+2. [소유권](./02-ownership.md)
+3. [계약](./03-contracts.md)
+4. [워크스페이스](./04-workspaces.md)
+5. [네트워크와 IAM](./05-network-and-iam.md)
+6. [공유 리소스](./06-shared-resources.md)
+7. [서비스 간 통신](./07-service-to-service.md)
+8. [레거시](./08-legacy.md)
+9. [안전성](./09-safety.md)
+10. [리뷰 체크리스트](./10-review-checklist.md)
+11. [구체 예시](./11-concrete-examples.md)
 
 ## 어떻게 읽으면 좋은가
 

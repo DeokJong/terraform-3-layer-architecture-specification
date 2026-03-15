@@ -1,4 +1,4 @@
----
+﻿---
 title: 아키텍처
 description: 3계층 Terraform 모델의 구조, 책임, 참조 규칙, workspace 분리 기준을 설명하는 기술 명세 섹션입니다.
 hero_kicker: Section Overview
@@ -16,7 +16,7 @@ nav_order: 1
 
 - 구조를 설명한다.
 - 책임 경계를 정의한다.
-- Contract와 Workspace를 어떻게 다뤄야 하는지 명확히 한다.
+- 계약와 워크스페이스를 어떻게 다뤄야 하는지 명확히 한다.
 - 안전성과 운영 관점까지 포함해 설계 판단 기준을 제공한다.
 
 ## 권장 읽기 순서
@@ -33,7 +33,7 @@ nav_order: 1
 10. [의사결정 체크리스트](./10-decision-checklist.md)
 11. [용어 참고](./01a-glossary-and-views.md)
 12. [공유 리소스 설계 템플릿](./11-shared-resource-design-template.md)
-13. [마이그레이션과 롤아웃 시나리오](./12-migration-and-rollout-scenarios.md)
+13. [마이그레이션과 롤아웃 시나리오](./12-마이그레이션-and-rollout-scenarios.md)
 
 ## 어떻게 읽으면 좋은가
 
@@ -47,3 +47,4 @@ nav_order: 1
 
 - [규약](../conventions/index.md)
 - [ADR](../adr/adr-0001-3layer-architecture-contract-workspace.md)
+

@@ -1,4 +1,4 @@
----
+﻿---
 title: 운영
 doc_section: architecture
 nav_parent: architecture-index
@@ -24,13 +24,13 @@ nav_order: 10
 - parameter path 변경
 - DNS name 변경
 - contract meaning 변경
-- Active Contract 제거
+- Active 계약 제거
 
 처리 원칙:
 
-1. 새 Contract 추가
-2. consumer migration
-3. 기존 Contract deprecate
+1. 새 계약 추가
+2. consumer 마이그레이션
+3. 기존 계약 deprecate
 4. 제거
 
 ## Legacy 자산 처리
@@ -40,15 +40,15 @@ nav_order: 10
 적용 원칙:
 
 - legacy naming이어도 ownership은 새 기준으로 해석
-- 신규 리소스와 신규 Contract는 새 기준을 우선 적용
-- rename보다 병행 게시와 점진 migration을 우선
+- 신규 리소스와 신규 계약는 새 기준을 우선 적용
+- rename보다 병행 게시와 점진 마이그레이션을 우선
 
 ## Legacy 현대화 절차
 
-1. 현재 값이 Implementation Value인지 Contract Value인지 분류한다.
+1. 현재 값이 구현값인지 계약 Value인지 분류한다.
 2. 실제 provider와 consumer를 식별한다.
-3. 공식 Contract가 없으면 새 Contract를 정의한다.
-4. consumer를 새 Contract로 전환한다.
+3. 공식 계약가 없으면 새 계약를 정의한다.
+4. consumer를 새 계약로 전환한다.
 5. 기존 직접 참조를 제거한다.
 
 ## 문서화 원칙
@@ -58,11 +58,12 @@ shared resource나 service interface를 새로 만들 때는 최소한 아래를
 - owner
 - consumer
 - contract name
-- publication 방식
+- 게시 방식
 - breaking change 절차
 - workspace 배치 이유
 
 ## 다음 문서
 
 - [의사결정 체크리스트](./10-decision-checklist.md)
+
 

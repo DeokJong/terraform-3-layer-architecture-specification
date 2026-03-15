@@ -1,4 +1,4 @@
----
+﻿---
 title: 계층
 doc_section: architecture
 nav_parent: architecture-index
@@ -12,7 +12,7 @@ nav_order: 4
 ## 이 장이 답하는 질문
 
 - 이 리소스는 Foundation, Platform, Service 중 어디에 두어야 하는가
-- 어떤 Layer가 어떤 Layer의 Contract를 참조할 수 있는가
+- 어떤 Layer가 어떤 Layer의 계약를 참조할 수 있는가
 - shared capability와 service-specific implementation을 어디서 갈라야 하는가
 
 ## 계층 개요
@@ -77,7 +77,7 @@ nav_order: 4
 판단 기준:
 
 - 여러 서비스가 공통으로 소비한다.
-- provider로서 안정된 Contract를 게시한다.
+- provider로서 안정된 계약를 게시한다.
 - 서비스 개별 구현 세부사항을 일반 리소스 관리 목적으로 알지 않아야 한다.
 
 예외:
@@ -109,4 +109,5 @@ nav_order: 4
 ## 다음 문서
 
 - [계약](./03-contracts.md)
+
 

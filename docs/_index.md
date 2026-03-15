@@ -1,4 +1,4 @@
----
+﻿---
 title: Terraform 3계층 아키텍처 문서 포털
 description: 3-layer Terraform architecture의 구조, 운영 규칙, ADR, 유지보수 체계를 한 흐름으로 읽기 위한 문서 포털입니다.
 hero_kicker: Documentation Portal
@@ -25,7 +25,7 @@ nav_order: 1
 <div class="home-grid">
   <section class="home-card">
     <h3><a href="./architecture/">아키텍처</a></h3>
-    <p>Layer, Contract, ownership, workspace, shared resource, 안전성 구조를 정의하는 기술 명세 섹션입니다.</p>
+    <p>Layer, 계약, ownership, workspace, shared resource, 안전성 구조를 정의하는 기술 명세 섹션입니다.</p>
     <ul>
       <li><a href="./architecture/03-contracts/">계약</a></li>
       <li><a href="./architecture/05-workspace-model/">워크스페이스 모델</a></li>
@@ -73,7 +73,7 @@ nav_order: 1
 - [공유 리소스](./architecture/06-shared-resources.md)
 - [워크스페이스 규약](./conventions/04-workspaces.md)
 
-### 운영 안전성과 blast radius를 점검하려는 경우
+### 운영 안전성과 영향 범위를 점검하려는 경우
 
 - [운영](./architecture/08-operations.md)
 - [안전성과 복원력](./architecture/09-safety-and-resilience.md)
@@ -84,3 +84,4 @@ nav_order: 1
 - [문서 시스템](./meta/_index.md)
 - [작업 인덱스](./meta/work-index.md)
 - [에이전트 지침 원본](./meta/agent-instructions.md)
+

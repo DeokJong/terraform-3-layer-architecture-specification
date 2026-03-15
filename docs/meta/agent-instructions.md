@@ -1,4 +1,4 @@
----
+﻿---
 title: 에이전트 지침 원본
 description: AGENTS.md와 CLAUDE.md의 canonical source로 사용하는 저장소 공통 agent guidance입니다.
 hero_kicker: Documentation Governance
@@ -114,4 +114,5 @@ config:
   look: neo
 ---
 ```
+
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 계약 규약
 doc_section: conventions
 nav_parent: conventions-index
@@ -9,10 +9,10 @@ nav_order: 4
 
 ## 설계 원칙
 
-- 하위 레이어는 Contract만 소비한다.
-- Implementation Value는 직접 노출하지 않는다.
-- Contract는 의미가 안정적이어야 한다.
-- Contract owner는 provider다.
+- 하위 레이어는 계약만 소비한다.
+- 구현값는 직접 노출하지 않는다.
+- 계약는 의미가 안정적이어야 한다.
+- 계약 owner는 provider다.
 
 ## 게시 수단
 
@@ -41,19 +41,20 @@ nav_order: 4
 ## 생명주기 규약
 
 - 신규는 `Draft` 또는 `Active`로 시작한다.
-- breaking change 시 새 Contract를 병행 게시한다.
-- 기존 Contract는 `Deprecated` 단계를 거친다.
+- breaking change 시 새 계약를 병행 게시한다.
+- 기존 계약는 `Deprecated` 단계를 거친다.
 - consumer 전환 후 제거한다.
 
 ## 문서화 규약
 
-각 Contract는 가능하면 아래를 남깁니다.
+각 계약는 가능하면 아래를 남깁니다.
 
-- Contract 이름
+- 계약 이름
 - 타입
 - provider
 - 주요 consumer
-- publication 방식
+- 게시 방식
 - source of truth
 - breaking change 절차
+
 

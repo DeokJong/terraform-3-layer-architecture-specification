@@ -1,4 +1,4 @@
----
+﻿---
 title: 마이그레이션과 롤아웃 시나리오
 doc_section: architecture
 nav_parent: architecture-index
@@ -9,11 +9,11 @@ nav_order: 14
 
 ## 계약 마이그레이션
 
-1. 현재 Active Contract를 식별합니다.
-2. 새 Contract를 정의하고 병행 게시합니다.
-3. 소비자와 migration 순서를 식별합니다.
-4. migration 동안 두 계약을 함께 운영합니다.
-5. migration 이후 기존 계약을 Deprecated로 전환합니다.
+1. 현재 Active 계약를 식별합니다.
+2. 새 계약를 정의하고 병행 게시합니다.
+3. 소비자와 마이그레이션 순서를 식별합니다.
+4. 마이그레이션 동안 두 계약을 함께 운영합니다.
+5. 마이그레이션 이후 기존 계약을 Deprecated로 전환합니다.
 6. 안정화 이후에만 제거합니다.
 
 ## 공유 리소스 접근 확장
@@ -39,9 +39,9 @@ nav_order: 14
 
 1. 소비자가 implementation value를 직접 읽지 않는지 확인합니다.
 2. 새 core resource를 준비합니다.
-3. 기존 Contract가 새 core를 계속 대표할 수 있는지 확인합니다.
-4. 가능하면 contract meaning을 유지한 채 publication만 전환합니다.
-5. 불가능하면 새 Contract를 병행 게시하고 소비자를 migration합니다.
+3. 기존 계약가 새 core를 계속 대표할 수 있는지 확인합니다.
+4. 가능하면 contract meaning을 유지한 채 게시만 전환합니다.
+5. 불가능하면 새 계약를 병행 게시하고 소비자를 마이그레이션합니다.
 
 ## 서비스 롤아웃 실패
 
@@ -66,5 +66,6 @@ nav_order: 14
 1. 현재 값을 legacy contract 또는 implementation으로 식별합니다.
 2. 새 규칙 아래에서 provider ownership을 다시 해석합니다.
 3. 새 소비자는 새 contract 모델로 연결합니다.
-4. 기존 소비자는 점진적으로 migration합니다.
+4. 기존 소비자는 점진적으로 마이그레이션합니다.
+
 

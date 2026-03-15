@@ -1,4 +1,4 @@
----
+﻿---
 title: 레이어 분류 규약
 doc_section: conventions
 nav_parent: conventions-index
@@ -29,7 +29,7 @@ nav_order: 2
 
 - 여러 서비스가 공통으로 소비한다.
 - shared capability를 제공한다.
-- provider로서 stable Contract를 게시한다.
+- provider로서 stable 계약를 게시한다.
 - 서비스별 runtime과 분리된 shared lifecycle을 가진다.
 
 ## Service
@@ -39,4 +39,5 @@ nav_order: 2
 - 특정 서비스와 함께 배포된다.
 - 특정 서비스 장애/롤백 단위에 속한다.
 - 특정 서비스만을 위한 설정 또는 엔드포인트다.
+
 

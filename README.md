@@ -1,4 +1,4 @@
-# Terraform 3계층 아키텍처 기술 명세서
+﻿# Terraform 3계층 아키텍처 기술 명세서
 
 Terraform 3-Layer 아키텍처 기술 명세서를 정리한 문서 저장소입니다.
 
@@ -43,3 +43,4 @@ docs/
 - Architecture 문서는 구조와 책임을 설명합니다.
 - Convention 문서는 구현과 운영 시 지켜야 할 규칙을 설명합니다.
 - ADR은 설계 결정을 채택한 이유를 기록합니다.
+

@@ -16,15 +16,15 @@
 
 - 새 workspace를 만들 때
 - shared resource ownership을 판단할 때
-- Contract naming과 publication 방식을 정할 때
+- 계약 naming과 게시 방식을 정할 때
 - legacy 자산을 새 기준에 맞춰 재해석할 때
 
 적용 순서:
 
 1. Layer를 결정한다.
 2. owner를 결정한다.
-3. Contract 여부를 결정한다.
-4. Workspace를 분리할지 결정한다.
+3. 계약 여부를 결정한다.
+4. 워크스페이스를 분리할지 결정한다.
 5. Safety 기준으로 검토한다.
 
 ## 4. Layer 분류 Convention
@@ -51,7 +51,7 @@
 
 - 여러 서비스가 공통으로 소비한다.
 - shared capability를 제공한다.
-- provider로서 stable Contract를 게시한다.
+- provider로서 stable 계약를 게시한다.
 - 서비스별 runtime과 분리된 shared lifecycle을 가진다.
 
 예:
@@ -97,18 +97,18 @@
 - 어떤 도구로 전달되는가
 - 현재 코드가 어느 workspace에 들어 있는가
 
-## 6. Contract Convention
+## 6. 계약 Convention
 
-### 6.1 Contract 설계 원칙
+### 6.1 계약 설계 원칙
 
-- 하위 레이어는 Contract만 소비한다.
-- Implementation Value는 직접 노출하지 않는다.
-- Contract는 의미가 안정적이어야 한다.
-- Contract owner는 provider다.
+- 하위 레이어는 계약만 소비한다.
+- 구현값는 직접 노출하지 않는다.
+- 계약는 의미가 안정적이어야 한다.
+- 계약 owner는 provider다.
 
-### 6.2 Contract 게시 수단
+### 6.2 계약 게시 수단
 
-다음은 모두 Contract 게시 수단으로 사용할 수 있습니다.
+다음은 모두 계약 게시 수단으로 사용할 수 있습니다.
 
 - Terraform output
 - SSM Parameter
@@ -117,7 +117,7 @@
 
 게시 수단은 ownership을 바꾸지 않습니다.
 
-### 6.3 Contract naming Convention
+### 6.3 계약 naming Convention
 
 원칙:
 
@@ -135,40 +135,40 @@
 지양 예:
 
 - 물리 리소스명에 과도하게 결합된 이름
-- 임시 migration 의미가 영구 이름에 박힌 이름
+- 임시 마이그레이션 의미가 영구 이름에 박힌 이름
 - consumer 이름이 뒤섞여 provider 의미가 흐려지는 이름
 
-### 6.4 Contract 문서화 Convention
+### 6.4 계약 문서화 Convention
 
-각 Contract는 가능하면 아래를 남깁니다.
+각 계약는 가능하면 아래를 남깁니다.
 
-- Contract 이름
+- 계약 이름
 - 타입
 - provider
 - 주요 consumer
-- publication 방식
+- 게시 방식
 - source of truth
 - breaking change 절차
 
-### 6.5 Contract lifecycle Convention
+### 6.5 계약 lifecycle Convention
 
 - 신규는 `Draft` 또는 `Active`로 시작한다.
-- breaking change 시 새 Contract를 병행 게시한다.
-- 기존 Contract는 `Deprecated` 단계를 거친다.
+- breaking change 시 새 계약를 병행 게시한다.
+- 기존 계약는 `Deprecated` 단계를 거친다.
 - consumer 전환 후 제거한다.
 
-## 7. Workspace Convention
+## 7. 워크스페이스 Convention
 
-### 7.1 Workspace 설계 원칙
+### 7.1 워크스페이스 설계 원칙
 
-- Workspace는 Layer와 분리해서 설계한다.
+- 워크스페이스는 Layer와 분리해서 설계한다.
 - Resource Set을 먼저 정의하고 필요 시 내부 분리를 검토한다.
-- 고위험 resource body와 churn이 높은 binding은 변경 특성이 다르면 분리한다.
-- publication은 namespace보다 contract ownership과 migration 경계를 기준으로 둔다.
+- 고위험 resource body와 churn이 높은 바인딩은 변경 특성이 다르면 분리한다.
+- 게시은 namespace보다 contract ownership과 마이그레이션 경계를 기준으로 둔다.
 - 서비스 런타임은 가능한 한 독립 배포 가능해야 한다.
-- 규모가 작고 변경 특성이 유사하면 하나의 Resource Set을 하나의 Workspace로 함께 둘 수 있다.
+- 규모가 작고 변경 특성이 유사하면 하나의 Resource Set을 하나의 워크스페이스로 함께 둘 수 있다.
 
-### 7.2 Workspace naming Convention
+### 7.2 워크스페이스 naming Convention
 
 권장 패턴:
 
@@ -179,38 +179,38 @@
 - `foundation-network-core`
 - `foundation-dns-core`
 - `user-db`
-- `user-db-publication`
+- `user-db-게시`
 - `service-orders-runtime`
 - `service-orders-contract`
 
 역할 suffix 권장:
 
 - `core`
-- `binding`
-- `publication`
+- `바인딩`
+- `게시`
 - `runtime`
 
-### 7.3 같은 Workspace에 둘 수 있는 경우
+### 7.3 같은 워크스페이스에 둘 수 있는 경우
 
 - 항상 함께 변경됨
 - ownership 동일
 - apply 주체 동일
-- blast radius 차이 작음
+- 영향 범위 차이 작음
 - access rule 변경이 드물음
-- publication 변경이 primary resource와 사실상 같은 수명주기를 가짐
+- 게시 변경이 primary resource와 사실상 같은 수명주기를 가짐
 
 예:
 
 - 단일 shared resource를 한 팀이 관리
 - consumer 수가 적음
 - access rule 변경이 드묾
-- publication이 단순 stable contract 게시 역할만 함
+- 게시이 단순 stable contract 게시 역할만 함
 
 대표 예:
 
-- `user-db` cluster + SG allowlist + SSM publication
-- `shared-storage` bucket + bucket policy binding + output publication
-- `shared-cache` cluster + ingress allowlist + endpoint publication
+- `user-db` cluster + SG allowlist + SSM 게시
+- `shared-storage` bucket + bucket policy 바인딩 + output 게시
+- `shared-cache` cluster + ingress allowlist + endpoint 게시
 
 ### 7.4 분리해야 하는 신호
 
@@ -218,14 +218,14 @@
 - consumer onboarding이 잦음
 - rollback 위험이 다름
 - downstream dependency가 많음
-- shared primary resource와 서비스별 binding이 섞여 있음
-- publication contract를 독립적으로 versioning하거나 migration해야 함
+- shared primary resource와 서비스별 바인딩이 섞여 있음
+- 게시 contract를 독립적으로 versioning하거나 마이그레이션해야 함
 
 ### 7.5 빠른 판단 규칙
 
 - "함께 자주 바뀌면 함께 둘 수 있다"
-- "consumer onboarding이 잦으면 binding 분리를 먼저 본다"
-- "contract migration이 보이면 publication 분리를 본다"
+- "consumer onboarding이 잦으면 바인딩 분리를 먼저 본다"
+- "contract 마이그레이션이 보이면 게시 분리를 본다"
 - "rollback 단위가 다르면 workspace를 분리한다"
 
 ## 8. Network / IAM Convention
@@ -267,11 +267,11 @@ shared resource는 먼저 하나의 Resource Set으로 정의합니다. Resource
 
 Resource Set 내부는 다음 기준이 있을 때 분리를 검토합니다.
 
-- blast radius 차이가 큰가
+- 영향 범위 차이가 큰가
 - 변경 빈도가 크게 다른가
 - ownership 또는 승인 절차가 다른가
 - rollback 경계가 다른가
-- publication churn이 core 안정성에 영향을 주는가
+- 게시 churn이 core 안정성에 영향을 주는가
 
 위 조건이 약하면 하나의 Resource Set 또는 하나의 workspace로 유지할 수 있습니다.
 
@@ -280,7 +280,7 @@ Resource Set 내부는 다음 기준이 있을 때 분리를 검토합니다.
 `Core / Access / Publication`은 Resource Set 내부를 설명하는 대표 패턴으로 사용합니다.
 
 - Core: 본체 리소스
-- Access: allowlist, attachment, grant, policy binding
+- Access: allowlist, attachment, grant, policy 바인딩
 - Publication: consumer-facing contract
 
 모든 shared resource에 이 3분할을 강제하지는 않습니다.
@@ -290,23 +290,23 @@ Resource Set 내부는 다음 기준이 있을 때 분리를 검토합니다.
 DB Resource Set:
 
 - `user-db`
-- 필요 시 `user-db-core`, `user-db-access`, `user-db-publication`
+- 필요 시 `user-db-core`, `user-db-access`, `user-db-게시`
 
 Storage Resource Set:
 
 - `shared-storage`
-- 필요 시 `shared-storage-core`, `shared-storage-access`, `shared-storage-publication`
+- 필요 시 `shared-storage-core`, `shared-storage-access`, `shared-storage-게시`
 
 Redis Resource Set:
 
 - `shared-cache`
-- 필요 시 `shared-cache-core`, `shared-cache-access`, `shared-cache-publication`
+- 필요 시 `shared-cache-core`, `shared-cache-access`, `shared-cache-게시`
 
 ## 10. Service-to-Service Convention
 
 - Service는 다른 Service implementation을 직접 참조하지 않는다.
-- 상대 서비스가 게시한 API hostname 또는 공식 Contract만 사용한다.
-- auth, allowlist, binding은 access dependency로 분리한다.
+- 상대 서비스가 게시한 API hostname 또는 공식 계약만 사용한다.
+- auth, allowlist, 바인딩은 access dependency로 분리한다.
 
 금지 예:
 
@@ -318,47 +318,47 @@ Redis Resource Set:
 
 - 기존 naming은 즉시 바꾸지 않는다.
 - 기존 자산도 ownership은 새 기준으로 재해석한다.
-- 신규 리소스와 신규 Contract는 Convention을 우선 적용한다.
-- rename보다 병행 게시와 점진 migration을 우선한다.
+- 신규 리소스와 신규 계약는 Convention을 우선 적용한다.
+- rename보다 병행 게시와 점진 마이그레이션을 우선한다.
 
 ## 12. Safety Convention
 
 ### 12.1 변경 안전성
 
 - implementation change와 contract change를 구분한다.
-- Active Contract는 migration 없이 직접 교체하지 않는다.
+- Active 계약는 마이그레이션 없이 직접 교체하지 않는다.
 - breaking change는 병행 게시 후 전환한다.
 
-### 12.2 blast radius 제어
+### 12.2 영향 범위 제어
 
 - core stability와 access churn이 다르면 분리 검토한다.
 - service onboarding 때문에 shared core workspace를 반복 수정하지 않는다.
-- publication convenience 때문에 source of truth ownership을 흐리지 않는다.
+- 게시 convenience 때문에 source of truth ownership을 흐리지 않는다.
 
 ### 12.3 rollback 가능성
 
 - workspace는 rollback 단위로 설명 가능해야 한다.
 - access 변경 실패가 core resource 변경으로 이어지지 않아야 한다.
-- consumer migration 실패 시 기존 contract를 유지할 수 있어야 한다.
+- consumer 마이그레이션 실패 시 기존 contract를 유지할 수 있어야 한다.
 
 ### 12.4 안전성 anti-pattern
 
-- active contract를 migration 없이 in-place 변경
+- active contract를 마이그레이션 없이 in-place 변경
 - shared resource allowlist 변경 때문에 core 전체 apply 필요
 - 서비스 하나의 실패가 shared platform core 변경으로 전파
 - aggregation output만 남고 실제 provider contract가 흐려지는 구조
 
 ## 13. 리뷰 체크리스트
 
-리소스나 Contract 추가 시 아래를 확인합니다.
+리소스나 계약 추가 시 아래를 확인합니다.
 
 - 이 리소스는 어느 Layer owner인가
-- 이 값은 Contract인가 Implementation Value인가
+- 이 값은 계약인가 구현값인가
 - consumer가 아니라 provider가 owner로 표현되었는가
-- Workspace 분리가 blast radius를 줄이는가
-- shared resource의 primary resource와 binding이 불필요하게 섞여 있지 않은가
+- 워크스페이스 분리가 영향 범위를 줄이는가
+- shared resource의 primary resource와 바인딩이 불필요하게 섞여 있지 않은가
 - legacy naming이 필요하더라도 의미 해석은 새 기준을 따르는가
-- 실패 시 rollback과 병행 migration이 가능한가
+- 실패 시 rollback과 병행 마이그레이션이 가능한가
 
 ## 14. Concrete Examples
 
@@ -367,8 +367,8 @@ Redis Resource Set:
 | Item | Recommended Placement |
 | --- | --- |
 | DB cluster | `user-db` |
-| SG allowlist | `user-db` or `user-db-binding` |
-| stable host publication | `user-db-publication` |
+| SG allowlist | `user-db` or `user-db-바인딩` |
+| stable host 게시 | `user-db-게시` |
 | app consumer | service runtime consumes contract only |
 
 In a small-scale environment these can still live in one workspace, but frequent onboarding or access churn is the signal to split them.
@@ -378,24 +378,24 @@ In a small-scale environment these can still live in one workspace, but frequent
 | Item | Recommended Placement |
 | --- | --- |
 | shared bucket | `shared-storage` |
-| bucket policy binding | `shared-storage` or `shared-storage-binding` |
-| public outputs or shared publication | `shared-storage-publication` |
+| bucket policy 바인딩 | `shared-storage` or `shared-storage-바인딩` |
+| public outputs or shared 게시 | `shared-storage-게시` |
 
 ### 14.3 Redis Example
 
 | Item | Recommended Placement |
 | --- | --- |
 | Redis core | `shared-cache` |
-| ingress allowlist | `shared-cache` or `shared-cache-binding` |
-| stable endpoint publication | `shared-cache-publication` |
+| ingress allowlist | `shared-cache` or `shared-cache-바인딩` |
+| stable endpoint 게시 | `shared-cache-게시` |
 
 ### 14.4 Ingress Example
 
 | Item | Recommended Placement |
 | --- | --- |
 | shared ingress core | `platform-ingress-core` |
-| listener rule binding or allowlist | `platform-ingress-access` or related access workspace |
-| stable hostname | contract or DNS publication workspace |
+| listener rule 바인딩 or allowlist | `platform-ingress-access` or related access workspace |
+| stable hostname | contract or DNS 게시 workspace |
 
 ### 14.5 Fast Classification Examples
 
@@ -404,6 +404,7 @@ In a small-scale environment these can still live in one workspace, but frequent
 | Is it consumed by many services | yes | Platform candidate |
 | Does it move with one service lifecycle | yes | Service candidate |
 | Is it part of global network foundation | yes | Foundation candidate |
-| Is it a stable consumer-facing value | yes | Contract candidate |
-| Is it a physical endpoint or internal ID | yes | Implementation Value candidate |
+| Is it a stable consumer-facing value | yes | 계약 candidate |
+| Is it a physical endpoint or internal ID | yes | 구현값 candidate |
+
 

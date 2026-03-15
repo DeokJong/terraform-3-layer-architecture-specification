@@ -1,4 +1,4 @@
----
+﻿---
 title: 계약
 doc_section: architecture
 nav_parent: architecture-index
@@ -20,7 +20,7 @@ nav_order: 5
 
 - 구현 세부사항에 직접 의존하면 제공자 내부 교체가 소비자 장애로 이어집니다.
 - ownership과 게시 위치를 분리해도 meaning을 안정적으로 유지하려면 공식 surface가 필요합니다.
-- Layer 간 연결을 리뷰하고 migration하기 위해서는 "의존 가능한 값 목록"이 문서화되어야 합니다.
+- Layer 간 연결을 리뷰하고 마이그레이션하기 위해서는 "의존 가능한 값 목록"이 문서화되어야 합니다.
 
 ## 계약 정의
 
@@ -104,7 +104,7 @@ nav_order: 5
 
 ## 게시 모델
 
-Contract는 아래 두 요소가 합쳐져야 성립합니다.
+계약는 아래 두 요소가 합쳐져야 성립합니다.
 
 1. 의미를 정의하는 provider
 2. 값을 전달하는 게시 surface
@@ -123,16 +123,16 @@ Contract는 아래 두 요소가 합쳐져야 성립합니다.
 
 ### 제공자 책임
 
-- Contract 의미 정의
+- 계약 의미 정의
 - naming과 path 안정성 관리
 - 변경 호환성 보장
-- deprecation 및 migration 계획 제공
+- deprecation 및 마이그레이션 계획 제공
 - consumer가 기대할 수 있는 semantics 문서화
 
 ### 소비자 책임
 
-- Contract만 의존하고 implementation을 추측하지 않기
-- deprecated signal에 맞춰 migration 수행
+- 계약만 의존하고 implementation을 추측하지 않기
+- deprecated signal에 맞춰 마이그레이션 수행
 - 비공식 값이나 임시 output에 의존하지 않기
 
 ## 계약 최소 기술 항목
@@ -150,12 +150,12 @@ Contract는 아래 두 요소가 합쳐져야 성립합니다.
 
 ## 원천 시스템
 
-publication workspace나 aggregation workspace가 있더라도 source of truth는 원 provider에 남아 있어야 합니다.
+게시 workspace나 aggregation workspace가 있더라도 source of truth는 원 provider에 남아 있어야 합니다.
 
 예:
 
 - DB endpoint contract의 source of truth는 DB를 운영하는 Platform domain
-- DNS publication은 contract 전달 수단일 뿐 ownership 이전이 아님
+- DNS 게시은 contract 전달 수단일 뿐 ownership 이전이 아님
 - aggregation output은 convenience layer일 수 있지만 contract 의미를 새로 정의하지는 않음
 
 ## 호환성 원칙
@@ -172,7 +172,7 @@ breaking change 예:
 non-breaking change 예:
 
 - implementation 교체 후 contract value 유지
-- publication backend의 내부 구조 변경
+- 게시 backend의 내부 구조 변경
 - consumer에게 투명한 내부 리소스 교체
 
 breaking 여부는 `consumer 수정이 필요한가`와 `기존 의미가 유지되는가`를 기준으로 판단합니다.
@@ -192,9 +192,9 @@ breaking 여부는 `consumer 수정이 필요한가`와 `기존 의미가 유지
 
 운영 원칙:
 
-- Active Contract는 in-place rename 하지 않는다.
-- Active Contract의 의미를 조용히 바꾸지 않는다.
-- breaking change가 필요하면 새 Contract를 추가하고 migration을 수행한다.
+- Active 계약는 in-place rename 하지 않는다.
+- Active 계약의 의미를 조용히 바꾸지 않는다.
+- breaking change가 필요하면 새 계약를 추가하고 마이그레이션을 수행한다.
 - Deprecated 없이 바로 제거하지 않는다.
 
 ## 사례
@@ -207,9 +207,9 @@ breaking 여부는 `consumer 수정이 필요한가`와 `기존 의미가 유지
 
 ### 공유 버킷
 
-- bucket physical ID: Implementation Value일 수 있음
+- bucket physical ID: 구현값일 수 있음
 - stable bucket name: 식별 계약
-- bucket consumer principal binding: 접근 계약
+- bucket consumer principal 바인딩: 접근 계약
 
 ### 서비스 API
 
@@ -219,4 +219,5 @@ breaking 여부는 `consumer 수정이 필요한가`와 `기존 의미가 유지
 ## 다음 문서
 
 - [소유권과 참조](./04-ownership-and-references.md)
+
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 용어 참고
 doc_section: architecture
 nav_parent: architecture-index
@@ -23,7 +23,7 @@ nav_order: 15
 | 구현값 | 내부 구현 세부사항으로 직접 소비하면 안 되는 값 |
 | 계약값 | 소비자가 의존해도 되는 안정된 값 |
 | 본체 리소스 | shared capability의 본체 리소스 |
-| Binding | allowlist, grant, binding, policy 같은 접근 제어 구성 |
+| Binding | allowlist, grant, 바인딩, policy 같은 접근 제어 구성 |
 | 게시 | 소비자용 계약을 게시하는 구성 |
 | 원천 시스템 | 값의 의미와 생성 책임이 존재하는 원천 |
 | 영향 범위 | 변경 또는 실패가 영향을 미치는 범위 |
@@ -42,4 +42,5 @@ nav_order: 15
 - 개요와 계층 문서를 읽다가 개념 정의가 헷갈릴 때
 - 계약과 소유권 문서를 읽다가 용어 차이를 다시 확인할 때
 - 리뷰 체크리스트에서 분류 기준을 되짚어야 할 때
+
 

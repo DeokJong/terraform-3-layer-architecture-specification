@@ -1,4 +1,4 @@
----
+﻿---
 title: 규약
 description: 3계층 아키텍처를 실제 Terraform 코드와 운영 구조에 적용할 때 반복적으로 사용하는 naming, ownership, contract, workspace 규칙입니다.
 hero_kicker: Section Overview
@@ -38,3 +38,4 @@ nav_order: 1
 - 계약 이름과 게시 방식이 고민되면 [계약](./03-contracts.md), [서비스 간 의존](./07-service-to-service.md)를 함께 봅니다.
 - 네트워크와 IAM 경계는 [네트워크와 IAM](./05-network-and-iam.md), 레거시 전환은 [레거시](./08-legacy.md)를 기준으로 판단합니다.
 - 리뷰 전에는 [검토 체크리스트](./10-review-checklist.md)와 [구체적 예시](./11-concrete-examples.md)로 최종 점검합니다.
+

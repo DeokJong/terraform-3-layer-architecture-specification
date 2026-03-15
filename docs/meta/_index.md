@@ -1,4 +1,4 @@
----
+﻿---
 title: 문서 시스템
 description: 문서 registry, work index, agent guidance를 포함해 저장소의 문서 유지보수 체계를 관리하는 메타 섹션입니다.
 hero_kicker: Section Overview
@@ -31,3 +31,4 @@ nav_order: 1
 2. 그 다음 `work-index.md`를 다시 생성합니다.
 3. agent guidance가 바뀌면 `docs/meta/agent-instructions.md`를 수정하고 mirror 파일을 함께 재생성합니다.
 4. 마지막으로 실제 문서 본문과 portal navigation을 맞춥니다.
+

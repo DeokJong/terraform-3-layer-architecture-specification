@@ -1,4 +1,4 @@
----
+﻿---
 title: 소유권과 참조
 doc_section: architecture
 nav_parent: architecture-index
@@ -12,7 +12,7 @@ nav_order: 6
 ## 이 장이 답하는 질문
 
 - ownership은 배치 위치가 아니라 어떤 기준으로 결정되는가
-- Contract owner와 consumer는 각각 무엇을 책임지는가
+- 계약 소유자와 Consumer는 각각 무엇을 책임지는가
 - 어떤 cross-layer reference는 허용되고 어떤 것은 금지되는가
 - access control 예외는 어디까지 허용되는가
 
@@ -31,13 +31,13 @@ owner의 책임:
 
 ## 계약 소유권
 
-Contract ownership은 다음으로 결정하지 않습니다.
+계약 ownership은 다음으로 결정하지 않습니다.
 
 - 누가 읽는가
 - 어디에 저장되는가
 - 어떤 도구로 전달되는가
 
-Contract ownership은 아래 기준으로 결정합니다.
+계약 ownership은 아래 기준으로 결정합니다.
 
 - 누가 해당 리소스 또는 인터페이스를 제공하는가
 - 누가 그 의미를 정의하는가
@@ -51,9 +51,9 @@ Contract ownership은 아래 기준으로 결정합니다.
 
 ## 허용되는 참조
 
-- Service → Platform Contract
-- Service → Foundation Contract
-- Platform → Foundation Contract
+- Service → Platform 계약
+- Service → Foundation 계약
+- Platform → Foundation 계약
 - producer-side access control을 위한 최소 식별자 참조
 
 ## 금지되는 참조
@@ -68,9 +68,9 @@ Contract ownership은 아래 기준으로 결정합니다.
 다음은 제한적으로 허용합니다.
 
 - SG ingress allowlist
-- bucket policy binding
-- KMS grant / key policy binding
-- role trust policy consumer binding
+- bucket policy 바인딩
+- KMS grant / key policy 바인딩
+- role trust policy Consumer 바인딩
 
 단, core lifecycle과 access lifecycle은 가능하면 분리합니다.
 
@@ -78,10 +78,11 @@ Contract ownership은 아래 기준으로 결정합니다.
 
 - 하위 레이어가 상위 레이어의 물리 리소스명을 직접 조합해 쓰는 것
 - consumer가 provider contract를 우회해 내부 output을 직접 읽는 것
-- temporary migration output을 영구 인터페이스처럼 사용하는 것
-- shared resource onboarding 때문에 core workspace를 계속 수정하는 것
+- 임시 마이그레이션 output을 영구 인터페이스처럼 사용하는 것
+- 공유 리소스 onboarding 때문에 core 워크스페이스를 계속 수정하는 것
 
 ## 다음 문서
 
 - [워크스페이스 모델](./05-workspace-model.md)
+
 

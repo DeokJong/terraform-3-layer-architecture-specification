@@ -25,37 +25,37 @@ nav_order: 1
 
 <div class="home-grid">
   <section class="home-card">
-    <h3><a href="/architecture/">Architecture</a></h3>
+    <h3><a href="./architecture/">Architecture</a></h3>
     <p>Layer, Contract, ownership, workspace, shared resource, 안전성 구조를 정의하는 기술 명세 섹션입니다.</p>
     <ul>
-      <li><a href="/architecture/03-contracts/">Contracts</a></li>
-      <li><a href="/architecture/05-workspace-model/">Workspace Model</a></li>
-      <li><a href="/architecture/09-safety-and-resilience/">Safety and Resilience</a></li>
+      <li><a href="./architecture/03-contracts/">Contracts</a></li>
+      <li><a href="./architecture/05-workspace-model/">Workspace Model</a></li>
+      <li><a href="./architecture/09-safety-and-resilience/">Safety and Resilience</a></li>
     </ul>
   </section>
   <section class="home-card">
-    <h3><a href="/conventions/">Conventions</a></h3>
+    <h3><a href="./conventions/">Conventions</a></h3>
     <p>실제 Terraform 구조와 리뷰에서 반복 적용할 naming, ownership, workspace 규칙을 정리합니다.</p>
     <ul>
-      <li><a href="/conventions/04-workspaces/">Workspace Convention</a></li>
-      <li><a href="/conventions/06-shared-resources/">Shared Resource Convention</a></li>
-      <li><a href="/conventions/10-review-checklist/">Review Checklist</a></li>
+      <li><a href="./conventions/04-workspaces/">Workspace Convention</a></li>
+      <li><a href="./conventions/06-shared-resources/">Shared Resource Convention</a></li>
+      <li><a href="./conventions/10-review-checklist/">Review Checklist</a></li>
     </ul>
   </section>
   <section class="home-card">
-    <h3><a href="/adr/">ADR</a></h3>
+    <h3><a href="./adr/">ADR</a></h3>
     <p>왜 이 구조를 채택했는지, 어떤 문제를 줄이려는지에 대한 의사결정 배경을 기록합니다.</p>
     <ul>
-      <li><a href="/adr/adr-0001-3layer-architecture-contract-workspace/">ADR-0001</a></li>
+      <li><a href="./adr/adr-0001-3layer-architecture-contract-workspace/">ADR-0001</a></li>
     </ul>
   </section>
   <section class="home-card">
-    <h3><a href="/meta/">Documentation System</a></h3>
+    <h3><a href="./meta/">Documentation System</a></h3>
     <p>문서 레지스트리, work index, agent guidance처럼 문서 유지보수 체계를 관리하는 메타 영역입니다.</p>
     <ul>
-      <li><a href="/meta/work-index/">Work Index</a></li>
-      <li><a href="/meta/agent-instructions/">Agent Instructions Source</a></li>
-      <li><a href="/meta/document-registry.json">Document Registry</a></li>
+      <li><a href="./meta/work-index/">Work Index</a></li>
+      <li><a href="./meta/agent-instructions/">Agent Instructions Source</a></li>
+      <li><a href="./meta/document-registry.json">Document Registry</a></li>
     </ul>
   </section>
 </div>

@@ -1,0 +1,27 @@
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <p class="sidebar-kicker">Documentation</p>
+    <a class="sidebar-home" href="{{ site.Home.RelPermalink }}">3-Layer Terraform Docs</a>
+  </div>
+
+  {{ $current := . }}
+  {{ range site.Data.nav.sections }}
+    {{ $root := site.GetPage (printf "/%s" .key) }}
+    {{ if $root }}
+      {{ $children := sort (where site.RegularPages "Params.doc_section" .key) "Params.nav_order" }}
+      <section class="sidebar-section">
+        <p class="sidebar-title">{{ .title }}</p>
+        <ul class="sidebar-list">
+          <li class="sidebar-item">
+            <a class="sidebar-link{{ if eq $current.RelPermalink $root.RelPermalink }} active{{ end }}" href="{{ $root.RelPermalink }}">{{ $root.Params.nav_title | default $root.Title }}</a>
+          </li>
+          {{ range where $children "Params.nav_parent" $root.Params.nav_key }}
+            <li class="sidebar-item">
+              <a class="sidebar-link child{{ if eq $current.RelPermalink .RelPermalink }} active{{ end }}" href="{{ .RelPermalink }}">{{ .Params.nav_title | default .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </section>
+    {{ end }}
+  {{ end }}
+</aside>

@@ -1,0 +1,9 @@
+sections:
+  - key: architecture
+    title: Architecture
+  - key: conventions
+    title: Conventions
+  - key: adr
+    title: ADR
+  - key: meta
+    title: Documentation System

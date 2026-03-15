@@ -1,0 +1,14 @@
+baseURL = "/"
+languageCode = "ko-kr"
+title = "3-Layer Terraform Documentation"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+contentDir = "docs"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  description = "Architecture specification, conventions, ADRs, and governance docs for a 3-layer Terraform model"
+  repoContentBase = "https://github.com/DeokJong/terraform-3-layer-architecture-specification/blob/main"

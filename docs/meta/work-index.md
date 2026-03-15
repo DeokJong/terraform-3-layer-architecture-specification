@@ -60,9 +60,9 @@ These files define the canonical architecture meaning and repository entry point
 
 ## Published Documentation Portal
 
-These files support the GitHub Pages reading experience.
+These files support the published Hugo documentation portal.
 
-### [Docs Portal Index](../index.md)
+### [Docs Portal Index](../)
 
 - Purpose: Human-friendly documentation landing page.
 - Owner: docs-portal
@@ -70,7 +70,7 @@ These files support the GitHub Pages reading experience.
 - Next actions:
   - Keep task-based navigation aligned with section indexes and documentation governance pages.
 
-### [Architecture Section Index](../architecture/index.md)
+### [Architecture Section Index](../architecture/)
 
 - Purpose: Section entry point for architecture specification pages.
 - Owner: docs-portal
@@ -182,7 +182,7 @@ These files support the GitHub Pages reading experience.
 - Next actions:
   - Add new scenarios when real rollout patterns emerge.
 
-### [Conventions Section Index](../conventions/index.md)
+### [Conventions Section Index](../conventions/)
 
 - Purpose: Section entry point for implementation conventions.
 - Owner: docs-portal
@@ -278,7 +278,7 @@ These files support the GitHub Pages reading experience.
 - Next actions:
   - Keep examples synchronized with the canonical conventions.
 
-### [ADR Index Page](../adr/index.md)
+### [ADR Index Page](../adr/)
 
 - Purpose: Published entry point for ADR navigation.
 - Owner: docs-portal
@@ -322,7 +322,7 @@ These files govern how Codex should maintain the documentation system itself.
 - Next actions:
   - Update this file first whenever repository agent guidance changes.
 
-### [Documentation System Index](index.md)
+### [Documentation System Index](../meta/)
 
 - Purpose: Entry point for the documentation maintenance and indexing system.
 - Owner: documentation-system
@@ -330,7 +330,7 @@ These files govern how Codex should maintain the documentation system itself.
 - Next actions:
   - Keep linked from the docs portal and AGENTS guidance.
 
-### [Document Registry](document-registry.json)
+### [Document Registry](./document-registry.json)
 
 - Purpose: Single machine-readable source of truth for document scope, ownership, and progress.
 - Owner: documentation-system

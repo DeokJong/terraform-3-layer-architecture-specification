@@ -6,7 +6,7 @@
 
 This repository is a documentation-first Terraform architecture specification project.
 
-The primary goal of any agent work here is to strengthen the architecture documentation, conventions, ADR linkage, and GitHub Pages documentation quality without fragmenting the source of truth.
+The primary goal of any agent work here is to strengthen the architecture documentation, conventions, ADR linkage, and Hugo portal quality without fragmenting the source of truth.
 
 ## Mirror Policy
 
@@ -31,7 +31,7 @@ The canonical root documents are:
 
 The canonical published portal is:
 
-- `docs/index.md`
+- `docs/_index.md`
 
 ## Documentation Source of Truth
 
@@ -43,10 +43,15 @@ Use this file as the human-readable generated work index:
 
 - `docs/meta/work-index.md`
 
+Use this published static mirror when the portal needs a raw registry download:
+
+- `static/meta/document-registry.json`
+
 Rules:
 
 - Update `document-registry.json` first when changing document scope, ownership, status, or next actions.
 - Regenerate `work-index.md` after updating the registry.
+- Keep the static registry mirror aligned with the canonical registry.
 - Keep root documents, `docs/`, the registry, and the agent instruction mirrors aligned.
 
 ## Agent Workflow
@@ -89,3 +94,4 @@ config:
   look: neo
 ---
 ```
+

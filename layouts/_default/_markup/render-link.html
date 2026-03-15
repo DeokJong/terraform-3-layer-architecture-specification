@@ -1,0 +1,42 @@
+{{- $dest := .Destination -}}
+{{- $title := .Title -}}
+{{- $text := .Text | safeHTML -}}
+{{- $isExternal := or (hasPrefix $dest "http://") (hasPrefix $dest "https://") (hasPrefix $dest "mailto:") (hasPrefix $dest "#") -}}
+{{- $attrs := slice -}}
+{{- with $title -}}
+  {{- $attrs = $attrs | append (printf " title=%q" .) -}}
+{{- end -}}
+{{- if $isExternal -}}
+  <a href="{{ $dest | safeURL }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
+{{- else -}}
+  {{- $pathOnly := replaceRE "#.*$" "" $dest -}}
+  {{- $fragment := "" -}}
+  {{- if in $dest "#" -}}
+    {{- $fragment = printf "#%s" (replaceRE "^.*#" "" $dest) -}}
+  {{- end -}}
+  {{- $sourceDir := "" -}}
+  {{- with .Page.File -}}
+    {{- $sourceDir = .Dir -}}
+  {{- end -}}
+  {{- $resolved := path.Clean (path.Join $sourceDir $pathOnly) -}}
+  {{- $candidate := $resolved -}}
+  {{- if or (eq $candidate "index.md") (eq $candidate "./index.md") -}}
+    {{- $candidate = "_index.md" -}}
+  {{- else if hasSuffix $candidate "/index.md" -}}
+    {{- $candidate = replace $candidate "/index.md" "/_index.md" -}}
+  {{- end -}}
+  {{- if eq $candidate "_index.md" -}}
+    <a href="{{ site.Home.RelPermalink }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
+  {{- else if hasSuffix $candidate ".md" -}}
+    {{- with .Page.GetPage $candidate -}}
+      <a href="{{ .RelPermalink }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
+    {{- else -}}
+      {{- $repoPath := replaceRE "^(\\.\\./)+" "" $resolved -}}
+      <a href="{{ site.Params.repoContentBase }}/{{ $repoPath }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
+    {{- end -}}
+  {{- else if or (eq $resolved "meta/document-registry.json") (hasSuffix $resolved "/document-registry.json") -}}
+    <a href="{{ "meta/document-registry.json" | relURL }}{{ $fragment }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
+  {{- else -}}
+    <a href="{{ $dest | safeURL }}"{{ delimit $attrs "" | safeHTMLAttr }}>{{ $text }}</a>
+  {{- end -}}
+{{- end -}}

@@ -1,10 +1,12 @@
 import json
+import shutil
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
 REGISTRY = ROOT / "docs" / "meta" / "document-registry.json"
 OUTPUT = ROOT / "docs" / "meta" / "work-index.md"
+STATIC_REGISTRY = ROOT / "static" / "meta" / "document-registry.json"
 
 
 def load_registry():
@@ -12,6 +14,12 @@ def load_registry():
 
 
 def relative_link(path):
+    if path == "docs/_index.md":
+        return "../"
+    if path.startswith("docs/") and path.endswith("/_index.md"):
+        return f"../{path.removeprefix('docs/').removesuffix('/_index.md')}/"
+    if path == "docs/meta/document-registry.json":
+        return "./document-registry.json"
     if path.startswith("docs/meta/"):
         return path.removeprefix("docs/meta/")
     if path.startswith("docs/"):
@@ -71,6 +79,8 @@ def render(registry):
 def main():
     registry = load_registry()
     OUTPUT.write_text(render(registry), encoding="utf-8")
+    STATIC_REGISTRY.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(REGISTRY, STATIC_REGISTRY)
 
 
 if __name__ == "__main__":

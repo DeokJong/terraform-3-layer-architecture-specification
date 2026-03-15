@@ -1,6 +1,6 @@
 ---
 name: terraform-3-layer-doc-maintainer
-description: Maintain and strengthen the Terraform 3-layer architecture documentation system in this repository. Use when Codex needs to improve the architecture specification, conventions, ADR linkage, GitHub Pages docs structure, document indexing, source-of-truth tracking, or reusable documentation workflows for this project.
+description: Maintain and strengthen the Terraform 3-layer architecture documentation system in this repository. Use when Codex needs to improve the architecture specification, conventions, ADR linkage, Hugo docs structure, document indexing, source-of-truth tracking, or reusable documentation workflows for this project.
 ---
 
 # Terraform 3-Layer Doc Maintainer

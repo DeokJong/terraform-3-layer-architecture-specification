@@ -23,6 +23,7 @@ Use this playbook when strengthening document structure, consistency, and mainta
 ## 4. Keep governance artifacts working
 
 - Update `docs/meta/document-registry.json` before regenerating `docs/meta/work-index.md`.
+- Keep `static/meta/document-registry.json` synchronized with the canonical registry.
 - Update `docs/meta/agent-instructions.md` before regenerating `AGENTS.md` and `CLAUDE.md`.
 - Ensure local skills reference files that actually exist in the repository.
 

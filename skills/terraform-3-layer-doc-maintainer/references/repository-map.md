@@ -15,8 +15,8 @@ This reference explains how the Terraform 3-layer documentation repository is or
 
 ## Published portal sources
 
-- `docs/index.md`
-  Main landing page for the GitHub Pages portal.
+- `docs/_index.md`
+  Main landing page for the Hugo portal.
 - `docs/architecture/`
   Published chapter split of the architecture specification.
 - `docs/conventions/`
@@ -30,6 +30,8 @@ This reference explains how the Terraform 3-layer documentation repository is or
 
 - `docs/meta/document-registry.json`
   Machine-readable source of truth for tracked documents, ownership, status, and next actions.
+- `static/meta/document-registry.json`
+  Published raw mirror of the registry for the Hugo site.
 - `docs/meta/work-index.md`
   Generated human-readable status board. Regenerate this after every registry change.
 - `docs/meta/agent-instructions.md`

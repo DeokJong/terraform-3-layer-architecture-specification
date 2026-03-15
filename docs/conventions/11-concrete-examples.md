@@ -1,37 +1,37 @@
-﻿# Concrete Examples
+# Concrete Examples
 
 ## DB Example
 
 | Item | Recommended Placement |
 | --- | --- |
-| DB cluster | `platform-db-core` |
-| SG allowlist | `platform-db-access` |
-| stable host publication | `platform-db-contract` |
+| DB cluster | `user-db` |
+| SG allowlist | `user-db` or `user-db-binding` |
+| stable host publication | `user-db-publication` |
 | app consumer | service runtime consumes contract only |
 
 ## S3 Example
 
 | Item | Recommended Placement |
 | --- | --- |
-| shared bucket | `platform-storage-core` |
-| bucket policy binding | `platform-storage-access` |
-| public outputs or shared publication | `platform-storage-contract` |
+| shared bucket | `shared-storage` |
+| bucket policy binding | `shared-storage` or `shared-storage-binding` |
+| public outputs or shared publication | `shared-storage-publication` |
 
 ## Redis Example
 
 | Item | Recommended Placement |
 | --- | --- |
-| Redis core | `platform-cache-core` |
-| ingress allowlist | `platform-cache-access` |
-| stable endpoint publication | `platform-cache-contract` |
+| Redis core | `shared-cache` |
+| ingress allowlist | `shared-cache` or `shared-cache-binding` |
+| stable endpoint publication | `shared-cache-publication` |
 
 ## Ingress Example
 
 | Item | Recommended Placement |
 | --- | --- |
-| shared ingress core | `platform-ingress-core` |
-| listener rule binding or allowlist | `platform-ingress-access` or related access workspace |
-| stable hostname | contract or DNS publication workspace |
+| shared ingress core | `shared-ingress` |
+| listener rule binding or allowlist | `shared-ingress` or `shared-ingress-binding` |
+| stable hostname | publication workspace or DNS publication set |
 
 ## Fast Classification Examples
 

@@ -10,7 +10,7 @@ This file is generated from `docs/meta/document-registry.json`.
 
 ## Summary
 
-- Last updated: `2026-03-14`
+- Last updated: `2026-03-15`
 - Canonical source: `docs/meta/document-registry.json`
 
 ## Canonical Root Documents
@@ -107,11 +107,27 @@ These files govern how Codex should maintain the documentation system itself.
 
 ### [Repository AGENTS](../../AGENTS.md)
 
-- Purpose: Repository-specific agent instructions for maintaining the documentation system.
+- Purpose: Rendered repository-specific agent instructions for maintaining the documentation system.
 - Owner: documentation-system
 - Status: `stable`
 - Next actions:
-  - Keep aligned with the skill and registry workflow.
+  - Regenerate together with CLAUDE.md after updating docs/meta/agent-instructions.md.
+
+### [Repository CLAUDE](../../CLAUDE.md)
+
+- Purpose: Rendered Claude-compatible repository instructions mirrored from the shared agent guidance source.
+- Owner: documentation-system
+- Status: `stable`
+- Next actions:
+  - Regenerate together with AGENTS.md after updating docs/meta/agent-instructions.md.
+
+### [Agent Instructions Source](agent-instructions.md)
+
+- Purpose: Canonical source for the mirrored AGENTS.md and CLAUDE.md repository instruction files.
+- Owner: documentation-system
+- Status: `stable`
+- Next actions:
+  - Update this file first whenever repository agent guidance changes.
 
 ### [Documentation System Index](index.md)
 

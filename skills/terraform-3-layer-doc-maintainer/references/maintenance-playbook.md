@@ -21,12 +21,12 @@ Prefer these improvements when strengthening the documentation:
 
 ## Diagram rule
 
-- every Mermaid block must include this config header directly under ````mermaid````:
+- every Mermaid block must include this config header directly under ````mermaid```` and must use `flowchart TB`:
 
 ```yaml
 ---
 config:
-  layout: fixed
+  layout: elk
   theme: redux
   look: neo
 ---

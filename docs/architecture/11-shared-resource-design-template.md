@@ -1,4 +1,4 @@
-﻿# Shared Resource Design Template
+# Shared Resource Design Template
 
 새 shared resource를 설계할 때 사용하는 표준 템플릿입니다.
 
@@ -6,7 +6,7 @@
 
 | Field | Description |
 | --- | --- |
-| Resource Name | Example: shared orders DB |
+| Resource Name | Example: `user-db` |
 | Resource Type | DB / Cache / Bucket / KMS / Ingress |
 | Layer | Foundation / Platform / Service |
 | Owner | Lifecycle owner |
@@ -21,29 +21,29 @@
 | Why does it belong to this layer | It is not tied to a single service lifecycle |
 | What is hidden as implementation | Physical endpoint or internal IDs |
 | What is published as contract | Stable DNS, SSM path, standard output |
-| How often does access change | Monthly / weekly / frequent |
-| Is publication separate from core | Yes or no with reason |
+| How often does binding change | Monthly / weekly / frequent |
+| Is publication separate from the primary resource set | Yes or no with reason |
 
-## Core / Access / Publication Plan
+## Resource Set Partition Plan
 
-| Area | Included Resources | Owner | Change Frequency | Split Decision |
+| Partition | Included Resources | Owner | Change Frequency | Split Decision |
 | --- | --- | --- | --- | --- |
-| Core | Primary resource body | provider | low | split if blast radius is large |
-| Access | allowlist, bindings, grants | provider or access owner | medium or high | split if churn is high |
-| Publication | DNS, SSM, output | provider | low or medium | split if migration is likely |
+| Primary Set | Primary resource body and closely coupled configuration | provider | low | keep together if lifecycle is aligned |
+| Binding Set | allowlist, bindings, grants, policy attachments | provider or access owner | medium or high | split if churn is high |
+| Publication Set | DNS, SSM, output publication | provider | low or medium | split if migration is likely |
 
 ## Contract Record
 
 | Contract Name | Type | Consumer | Publication | Source of Truth | Stability |
 | --- | --- | --- | --- | --- | --- |
-| `db-main.internal.example.com` | Connectivity | backend services | Route53 | platform-db-core | stable |
-| `/platform/orders/db/host` | Runtime | app runtime | SSM | platform-db-contract | stable |
+| `db-main.internal.example.com` | Connectivity | backend services | Route53 | `user-db` | stable |
+| `/backends/prod/db/primary` | Runtime | app runtime | SSM | `user-db-publication` | stable |
 
 ## Review Questions
 
 - Does this shared resource really have a shared lifecycle
-- Can core stability survive consumer growth
-- Will access churn force repeated core applies
+- Can the primary resource set stay stable as consumer count grows
+- Will binding churn force repeated primary resource applies
 - Can contract migration run in parallel without breaking consumers
 
 ## Next

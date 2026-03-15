@@ -1,7 +1,18 @@
-<!-- Generated from docs/meta/agent-instructions.md for AGENTS.md. -->
-<!-- Edit the source file, then re-render both AGENTS.md and CLAUDE.md together. -->
+# Agent Instructions Source
 
-# AGENTS.md
+This file is the canonical source for the repository agent guidance mirrors:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+
+Update this file first, then regenerate both mirror files together:
+
+```bash
+uv run python skills/terraform-3-layer-doc-maintainer/scripts/render_agent_files.py
+```
+
+<!-- BEGIN MIRROR BODY -->
+
 ## Purpose
 
 This repository is a documentation-first Terraform architecture specification project.

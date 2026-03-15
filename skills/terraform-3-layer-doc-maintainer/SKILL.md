@@ -15,6 +15,7 @@ Use the repository documentation system, not ad hoc edits.
 4. Edit canonical sources first.
 5. Update the registry when document scope, status, or next actions changed.
 6. Regenerate `docs/meta/work-index.md` with `scripts/render_work_index.py`.
+7. If agent guidance changed, update `docs/meta/agent-instructions.md` and regenerate both `AGENTS.md` and `CLAUDE.md` with `scripts/render_agent_files.py`.
 
 ## Canonical sources
 
@@ -34,12 +35,12 @@ Use the repository documentation system, not ad hoc edits.
 - Keep the human-facing `docs/meta/work-index.md` in sync by regenerating it.
 - Prefer adding reusable structure such as templates, matrices, diagrams, and operating procedures over adding broad prose.
 - When adding a new document family or section, register it in the registry immediately.
-- Every Mermaid block must include this config header directly under ````mermaid````:
+- Every Mermaid block must include this config header directly under ````mermaid```` and must use `flowchart TB`:
 
 ```yaml
 ---
 config:
-  layout: fixed
+  layout: elk
   theme: redux
   look: neo
 ---
@@ -51,4 +52,10 @@ Regenerate the work index with:
 
 ```bash
 uv run python skills/terraform-3-layer-doc-maintainer/scripts/render_work_index.py
+```
+
+Regenerate the agent instruction mirrors with:
+
+```bash
+uv run python skills/terraform-3-layer-doc-maintainer/scripts/render_agent_files.py
 ```

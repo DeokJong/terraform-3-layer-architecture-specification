@@ -162,10 +162,11 @@
 ### 7.1 Workspace 설계 원칙
 
 - Workspace는 Layer와 분리해서 설계한다.
-- core와 access는 churn이 다르면 분리한다.
-- publication은 ownership보다 consumer-facing surface 기준으로 둔다.
+- Resource Set을 먼저 정의하고 필요 시 내부 분리를 검토한다.
+- 고위험 resource body와 churn이 높은 binding은 변경 특성이 다르면 분리한다.
+- publication은 namespace보다 contract ownership과 migration 경계를 기준으로 둔다.
 - 서비스 런타임은 가능한 한 독립 배포 가능해야 한다.
-- 규모가 작고 변경 특성이 유사하면 core, access, publication을 하나의 Workspace로 함께 둘 수 있다.
+- 규모가 작고 변경 특성이 유사하면 하나의 Resource Set을 하나의 Workspace로 함께 둘 수 있다.
 
 ### 7.2 Workspace naming Convention
 
@@ -177,17 +178,16 @@
 
 - `foundation-network-core`
 - `foundation-dns-core`
-- `platform-db-core`
-- `platform-db-access`
-- `platform-db-contract`
+- `user-db`
+- `user-db-publication`
 - `service-orders-runtime`
 - `service-orders-contract`
 
 역할 suffix 권장:
 
 - `core`
-- `access`
-- `contract`
+- `binding`
+- `publication`
 - `runtime`
 
 ### 7.3 같은 Workspace에 둘 수 있는 경우
@@ -197,7 +197,7 @@
 - apply 주체 동일
 - blast radius 차이 작음
 - access rule 변경이 드물음
-- publication 변경이 core와 사실상 같은 수명주기를 가짐
+- publication 변경이 primary resource와 사실상 같은 수명주기를 가짐
 
 예:
 
@@ -208,9 +208,9 @@
 
 대표 예:
 
-- DB core + SG allowlist + SSM publication
-- bucket core + bucket policy binding + output publication
-- Redis core + ingress allowlist + endpoint publication
+- `user-db` cluster + SG allowlist + SSM publication
+- `shared-storage` bucket + bucket policy binding + output publication
+- `shared-cache` cluster + ingress allowlist + endpoint publication
 
 ### 7.4 분리해야 하는 신호
 
@@ -218,13 +218,13 @@
 - consumer onboarding이 잦음
 - rollback 위험이 다름
 - downstream dependency가 많음
-- shared core와 서비스별 binding이 섞여 있음
+- shared primary resource와 서비스별 binding이 섞여 있음
 - publication contract를 독립적으로 versioning하거나 migration해야 함
 
 ### 7.5 빠른 판단 규칙
 
 - "함께 자주 바뀌면 함께 둘 수 있다"
-- "consumer onboarding이 잦으면 access 분리를 먼저 본다"
+- "consumer onboarding이 잦으면 binding 분리를 먼저 본다"
 - "contract migration이 보이면 publication 분리를 본다"
 - "rollback 단위가 다르면 workspace를 분리한다"
 
@@ -356,7 +356,7 @@ Redis Resource Set:
 - 이 값은 Contract인가 Implementation Value인가
 - consumer가 아니라 provider가 owner로 표현되었는가
 - Workspace 분리가 blast radius를 줄이는가
-- shared resource의 core와 access가 불필요하게 섞여 있지 않은가
+- shared resource의 primary resource와 binding이 불필요하게 섞여 있지 않은가
 - legacy naming이 필요하더라도 의미 해석은 새 기준을 따르는가
 - 실패 시 rollback과 병행 migration이 가능한가
 
@@ -366,9 +366,9 @@ Redis Resource Set:
 
 | Item | Recommended Placement |
 | --- | --- |
-| DB cluster | `platform-db-core` |
-| SG allowlist | `platform-db-access` |
-| stable host publication | `platform-db-contract` |
+| DB cluster | `user-db` |
+| SG allowlist | `user-db` or `user-db-binding` |
+| stable host publication | `user-db-publication` |
 | app consumer | service runtime consumes contract only |
 
 In a small-scale environment these can still live in one workspace, but frequent onboarding or access churn is the signal to split them.
@@ -377,17 +377,17 @@ In a small-scale environment these can still live in one workspace, but frequent
 
 | Item | Recommended Placement |
 | --- | --- |
-| shared bucket | `platform-storage-core` |
-| bucket policy binding | `platform-storage-access` |
-| public outputs or shared publication | `platform-storage-contract` |
+| shared bucket | `shared-storage` |
+| bucket policy binding | `shared-storage` or `shared-storage-binding` |
+| public outputs or shared publication | `shared-storage-publication` |
 
 ### 14.3 Redis Example
 
 | Item | Recommended Placement |
 | --- | --- |
-| Redis core | `platform-cache-core` |
-| ingress allowlist | `platform-cache-access` |
-| stable endpoint publication | `platform-cache-contract` |
+| Redis core | `shared-cache` |
+| ingress allowlist | `shared-cache` or `shared-cache-binding` |
+| stable endpoint publication | `shared-cache-publication` |
 
 ### 14.4 Ingress Example
 

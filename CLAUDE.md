@@ -1,7 +1,7 @@
-<!-- Generated from docs/meta/agent-instructions.md for AGENTS.md. -->
+<!-- Generated from docs/meta/agent-instructions.md for CLAUDE.md. -->
 <!-- Edit the source file, then re-render both AGENTS.md and CLAUDE.md together. -->
 
-# AGENTS.md
+# CLAUDE.md
 ## Purpose
 
 This repository is a documentation-first Terraform architecture specification project.

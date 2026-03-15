@@ -1,6 +1,6 @@
 {
     "source_of_truth":  "docs/meta/document-registry.json",
-    "last_updated":  "2026-03-14",
+    "last_updated":  "2026-03-15",
     "sections":  [
                      {
                          "name":  "Canonical Root Documents",
@@ -121,11 +121,31 @@
                                            {
                                                "title":  "Repository AGENTS",
                                                "path":  "AGENTS.md",
-                                               "purpose":  "Repository-specific agent instructions for maintaining the documentation system.",
+                                               "purpose":  "Rendered repository-specific agent instructions for maintaining the documentation system.",
                                                "owner":  "documentation-system",
                                                "status":  "stable",
                                                "next_actions":  [
-                                                                    "Keep aligned with the skill and registry workflow."
+                                                                    "Regenerate together with CLAUDE.md after updating docs/meta/agent-instructions.md."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Repository CLAUDE",
+                                               "path":  "CLAUDE.md",
+                                               "purpose":  "Rendered Claude-compatible repository instructions mirrored from the shared agent guidance source.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Regenerate together with AGENTS.md after updating docs/meta/agent-instructions.md."
+                                                                ]
+                                           },
+                                           {
+                                               "title":  "Agent Instructions Source",
+                                               "path":  "docs/meta/agent-instructions.md",
+                                               "purpose":  "Canonical source for the mirrored AGENTS.md and CLAUDE.md repository instruction files.",
+                                               "owner":  "documentation-system",
+                                               "status":  "stable",
+                                               "next_actions":  [
+                                                                    "Update this file first whenever repository agent guidance changes."
                                                                 ]
                                            },
                                            {

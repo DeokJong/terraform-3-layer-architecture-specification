@@ -8,7 +8,7 @@ nav_title: 개요
 nav_order: 1
 ---
 
-# Conventions
+# 규약
 
 이 섹션은 3계층 아키텍처를 실제 Terraform 코드와 운영 구조에 적용할 때 따라야 하는 규칙을 정리합니다.
 
@@ -34,7 +34,7 @@ nav_order: 1
 
 ## 어떻게 읽으면 좋은가
 
-- 새 workspace나 shared capability를 만들 때는 [Layer Classification](./01-layer-classification.md), [Ownership](./02-ownership.md), [Workspaces](./04-workspaces.md)를 먼저 봅니다.
-- contract naming과 publication이 고민되면 [Contracts](./03-contracts.md), [Service-to-Service](./07-service-to-service.md)를 함께 봅니다.
-- 네트워크와 IAM 경계는 [Network and IAM](./05-network-and-iam.md), 레거시 전환은 [Legacy](./08-legacy.md)를 기준으로 판단합니다.
-- 리뷰 전에는 [Review Checklist](./10-review-checklist.md)와 [Concrete Examples](./11-concrete-examples.md)로 최종 점검합니다.
+- 새 워크스페이스나 공유 capability를 만들 때는 [계층 분류](./01-layer-classification.md), [소유권](./02-ownership.md), [워크스페이스](./04-workspaces.md)를 먼저 봅니다.
+- 계약 이름과 게시 방식이 고민되면 [계약](./03-contracts.md), [서비스 간 의존](./07-service-to-service.md)를 함께 봅니다.
+- 네트워크와 IAM 경계는 [네트워크와 IAM](./05-network-and-iam.md), 레거시 전환은 [레거시](./08-legacy.md)를 기준으로 판단합니다.
+- 리뷰 전에는 [검토 체크리스트](./10-review-checklist.md)와 [구체적 예시](./11-concrete-examples.md)로 최종 점검합니다.

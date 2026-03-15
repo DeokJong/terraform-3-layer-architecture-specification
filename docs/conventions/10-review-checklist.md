@@ -5,7 +5,7 @@ nav_parent: conventions-index
 nav_order: 11
 ---
 
-# Review Checklist
+# 검토 체크리스트
 
 리소스나 Contract 추가 시 아래를 확인합니다.
 

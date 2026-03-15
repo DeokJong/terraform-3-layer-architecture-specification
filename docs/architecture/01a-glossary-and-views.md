@@ -1,88 +1,45 @@
 ---
-title: 용어집과 뷰
+title: 용어 참고
 doc_section: architecture
 nav_parent: architecture-index
-nav_order: 3
+nav_title: 용어 참고
+nav_order: 15
 ---
 
-# Glossary and Views
+# 용어 참고
 
-## 용어집
+이 페이지는 처음부터 순서대로 읽기 위한 장이 아니라, 본문을 읽다가 헷갈리는 용어를 다시 확인하는 참고 페이지입니다.
+
+## 핵심 용어
 
 | 용어 | 의미 |
 | --- | --- |
 | Layer | ownership과 dependency를 정의하는 논리 구조 |
-| Workspace | Terraform state, apply, 권한, blast radius를 제어하는 운영 단위 |
-| Resource Set | 하나의 shared capability를 제공하는 리소스 묶음 |
-| Provider | Contract를 제공하고 의미와 안정성을 보장하는 주체 |
-| Consumer | Contract를 읽고 사용하는 주체 |
-| Contract | 하위 레이어가 소비하기 위해 공식적으로 게시한 값 또는 인터페이스 |
-| Implementation Value | 내부 구현 세부사항으로 직접 소비하면 안 되는 값 |
-| Contract Value | consumer가 소비해도 되는 안정된 값 |
-| Primary Resource | shared capability의 본체 리소스 |
+| 워크스페이스 | Terraform state, apply, 권한, 영향 범위를 제어하는 운영 단위 |
+| 리소스 세트 | 하나의 shared capability를 제공하는 리소스 묶음 |
+| 제공자 | 계약을 제공하고 의미와 안정성을 보장하는 주체 |
+| 소비자 | 계약을 읽고 사용하는 주체 |
+| 계약 | 하위 레이어가 소비하기 위해 공식적으로 게시한 값 또는 인터페이스 |
+| 구현값 | 내부 구현 세부사항으로 직접 소비하면 안 되는 값 |
+| 계약값 | 소비자가 의존해도 되는 안정된 값 |
+| 본체 리소스 | shared capability의 본체 리소스 |
 | Binding | allowlist, grant, binding, policy 같은 접근 제어 구성 |
-| Publication | consumer-facing contract를 게시하는 구성 |
-| Source of Truth | 값의 의미와 생성 책임이 존재하는 원천 |
-| Blast Radius | 변경 또는 실패가 영향을 미치는 범위 |
+| 게시 | 소비자용 계약을 게시하는 구성 |
+| 원천 시스템 | 값의 의미와 생성 책임이 존재하는 원천 |
+| 영향 범위 | 변경 또는 실패가 영향을 미치는 범위 |
 
-## 시스템 뷰
+## 자주 헷갈리는 구분
 
-```mermaid
----
-config:
-  layout: fixed
-  theme: redux
-  look: neo
----
-flowchart LR
-    F[Foundation]
-    P[Platform]
-    S[Service]
+- 계층과 워크스페이스:
+  Layer는 ownership과 dependency 규칙을 설명하는 모델이고, 워크스페이스는 state와 apply 경계를 나누는 운영 단위입니다.
+- 계약과 구현값:
+  소비자가 의존해도 되는 공식 surface는 계약이고, 내부 ID나 물리 이름처럼 바뀔 수 있는 값은 구현값입니다.
+- 제공자와 소비자:
+  제공자는 계약의 의미와 호환성을 책임지고, 소비자는 그 계약만 사용해야 합니다.
 
-    F --> P
-    F --> S
-    P --> S
-```
+## 언제 이 페이지를 보나
 
-이 다이어그램은 참조 가능한 방향을 표현합니다.
-
-## Workspace 관점 뷰
-
-```mermaid
----
-config:
-  layout: fixed
-  theme: redux
-  look: neo
----
-flowchart TB
-    subgraph Foundation
-        FN[foundation-network-core]
-        FD[foundation-dns-core]
-    end
-
-    subgraph Platform
-        PDR[user-db]
-        PDP[user-db-publication]
-        PSC[shared-cache]
-    end
-
-    subgraph Service
-        SR[service-orders-runtime]
-        SC[service-orders-contract]
-    end
-
-    FN --> PDR
-    FD --> PDP
-    PDR --> PDP
-    PDP --> SR
-    SC --> SR
-    PSC --> SR
-```
-
-이 뷰는 Layer와 Workspace가 같은 개념이 아니라는 점을 보여줍니다.
-
-## 다음 문서
-
-- [Layers](./02-layers.md)
+- 개요와 계층 문서를 읽다가 개념 정의가 헷갈릴 때
+- 계약과 소유권 문서를 읽다가 용어 차이를 다시 확인할 때
+- 리뷰 체크리스트에서 분류 기준을 되짚어야 할 때
 

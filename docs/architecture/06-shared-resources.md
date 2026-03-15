@@ -5,9 +5,29 @@ nav_parent: architecture-index
 nav_order: 8
 ---
 
-# Shared Resources
+# 공유 리소스
 
-## Resource Set 우선 모델
+이 장은 "어떤 shared capability를 하나의 리소스 집합으로 봐야 하는가"를 설명합니다. 역할 이름을 기계적으로 나누는 것이 아니라, consumer가 기대하는 capability boundary를 먼저 잡는 장입니다.
+
+## 이 장이 답하는 질문
+
+- 어떤 리소스들을 하나의 Shared Resource로 묶어 설명해야 하는가
+- capability boundary와 Workspace boundary는 왜 다른가
+- `core / access / publication` 패턴은 언제 유용하고 언제 과한가
+- owner는 shared capability에 대해 무엇을 책임져야 하는가
+
+## 워크스페이스 모델과의 차이
+
+이 장의 주인공은 Resource Set입니다. 즉 "무엇이 하나의 shared capability인가"를 먼저 정의합니다. 그 다음에야 Workspace 분리 여부를 고민합니다.
+
+예를 들어:
+
+- `user-db`는 Shared Resource 이름입니다.
+- `user-db-publication`은 그 Shared Resource를 운영하기 위한 선택적 Workspace 이름입니다.
+
+즉 Shared Resource가 먼저이고, Workspace 분리는 그다음 운영 선택입니다.
+
+## 리소스 세트 우선 모델
 
 shared resource는 우선 하나의 shared capability를 제공하는 Resource Set으로 정의합니다.
 
@@ -31,7 +51,7 @@ shared resource는 우선 하나의 shared capability를 제공하는 Resource S
 
 Platform Layer는 일반적으로 Service Layer보다 구조 변화가 적고 stable capability boundary를 가지므로, shared resource를 먼저 Resource Set 관점으로 설명하는 것을 권장합니다.
 
-## Resource Set 내부 분리 기준
+## 리소스 세트 내부 분리 기준
 
 하나의 Resource Set 안에 모든 구성요소를 둘 수도 있고, blast radius와 lifecycle 차이에 따라 내부를 여러 workspace나 하위 set으로 나눌 수도 있습니다.
 
@@ -63,7 +83,7 @@ Platform Layer는 일반적으로 Service Layer보다 구조 변화가 적고 st
 
 하지만 이것은 대표 패턴일 뿐이며, 모든 shared resource에 동일한 분해를 강제하지 않습니다.
 
-## DB Resource Set 예시
+## DB 리소스 세트 예시
 
 `user-db` 같은 DB Resource Set은 다음 구성요소를 함께 포함할 수 있습니다.
 
@@ -75,7 +95,7 @@ Platform Layer는 일반적으로 Service Layer보다 구조 변화가 적고 st
 
 소수 consumer만 사용하고 access churn이 낮으며 ownership이 동일하다면 하나의 workspace로 둘 수 있습니다. 반대로 consumer 수 증가, 잦은 allowlist 변경, contract migration, 별도 KMS governance 필요성이 생기면 그 시점에 내부 분리를 검토합니다.
 
-## Owner 책임
+## 소유자 책임
 
 shared resource owner는 다음을 책임집니다.
 
@@ -88,7 +108,7 @@ consumer는 shared resource를 직접 변경하는 대신 access contract와 pub
 
 중요한 점은 publication location이 ownership을 결정하지 않는다는 것입니다. 예를 들어 legacy 경로 아래 SSM parameter를 게시하더라도, 그 값의 의미와 lifecycle을 shared resource owner가 책임지면 owner는 여전히 Platform Resource Set입니다.
 
-## Shared Resource 예시 매핑
+## 공유 리소스 예시 매핑
 
 | Resource Set 예시 | 포함 가능 구성요소 | 선택적 내부 분리 예시 |
 | --- | --- | --- |
@@ -99,5 +119,5 @@ consumer는 shared resource를 직접 변경하는 대신 access contract와 pub
 
 ## 다음 문서
 
-- [Service Dependencies](./07-service-dependencies.md)
+- [서비스 의존성](./07-service-dependencies.md)
 

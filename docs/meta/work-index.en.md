@@ -86,13 +86,13 @@ These files support the published Hugo documentation portal.
 - Next actions:
   - Keep scope and non-goals aligned with the canonical specification overview.
 
-### [Glossary and Views Page](../architecture/01a-glossary-and-views.md)
+### [Reference Terms Page](../architecture/01a-glossary-and-views.md)
 
-- Purpose: Shared glossary and Mermaid views for the published architecture section.
+- Purpose: Lookup reference for architecture terms and commonly confused distinctions.
 - Owner: docs-portal
 - Status: `stable`
 - Next actions:
-  - Keep terminology and diagrams aligned with the canonical specification.
+  - Keep term definitions aligned with the canonical specification and conventions.
 
 ### [Layers Page](../architecture/02-layers.md)
 

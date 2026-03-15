@@ -16,6 +16,12 @@ other = "문서"
 [sidebar_home]
 other = "3계층 Terraform 문서"
 
+[sidebar_on_this_page]
+other = "현재 페이지"
+
+[sidebar_on_this_page_empty]
+other = "이 페이지는 별도 섹션이 없습니다."
+
 [language_switcher]
 other = "언어 전환"
 

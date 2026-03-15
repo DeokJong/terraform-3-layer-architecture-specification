@@ -5,9 +5,9 @@ nav_parent: conventions-index
 nav_order: 12
 ---
 
-# Concrete Examples
+# 구체적 예시
 
-## DB Example
+## DB 예시
 
 | Item | Recommended Placement |
 | --- | --- |
@@ -16,7 +16,7 @@ nav_order: 12
 | stable host publication | `user-db-publication` |
 | app consumer | service runtime consumes contract only |
 
-## S3 Example
+## S3 예시
 
 | Item | Recommended Placement |
 | --- | --- |
@@ -24,7 +24,7 @@ nav_order: 12
 | bucket policy binding | `shared-storage` or `shared-storage-binding` |
 | public outputs or shared publication | `shared-storage-publication` |
 
-## Redis Example
+## Redis 예시
 
 | Item | Recommended Placement |
 | --- | --- |
@@ -32,7 +32,7 @@ nav_order: 12
 | ingress allowlist | `shared-cache` or `shared-cache-binding` |
 | stable endpoint publication | `shared-cache-publication` |
 
-## Ingress Example
+## Ingress 예시
 
 | Item | Recommended Placement |
 | --- | --- |
@@ -40,7 +40,7 @@ nav_order: 12
 | listener rule binding or allowlist | `shared-ingress` or `shared-ingress-binding` |
 | stable hostname | publication workspace or DNS publication set |
 
-## Fast Classification Examples
+## 빠른 분류 예시
 
 | Question | Example Answer | Outcome |
 | --- | --- | --- |

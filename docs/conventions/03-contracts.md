@@ -5,7 +5,7 @@ nav_parent: conventions-index
 nav_order: 4
 ---
 
-# Contract Convention
+# 계약 규약
 
 ## 설계 원칙
 
@@ -23,7 +23,7 @@ nav_order: 4
 
 게시 수단은 ownership을 바꾸지 않습니다.
 
-## naming Convention
+## 이름 규약
 
 원칙:
 
@@ -38,14 +38,14 @@ nav_order: 4
 - `orders-api.internal.example.com`
 - `platform_db_primary_endpoint`
 
-## lifecycle Convention
+## 생명주기 규약
 
 - 신규는 `Draft` 또는 `Active`로 시작한다.
 - breaking change 시 새 Contract를 병행 게시한다.
 - 기존 Contract는 `Deprecated` 단계를 거친다.
 - consumer 전환 후 제거한다.
 
-## 문서화 Convention
+## 문서화 규약
 
 각 Contract는 가능하면 아래를 남깁니다.
 

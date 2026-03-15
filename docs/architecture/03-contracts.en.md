@@ -7,6 +7,21 @@ nav_order: 5
 
 # Contracts
 
+This chapter explains why Contracts are necessary and which values lower layers are actually allowed to depend on. Splitting Layers is not enough on its own; the connection surface must also be constrained.
+
+## Questions this chapter answers
+
+- Why must consumers avoid direct dependency on provider implementation details?
+- Which values count as Contracts and which are only Implementation Values?
+- Who owns a Contract, and why is that different from where it is published?
+- How should breaking changes be evaluated?
+
+## Why Contracts are necessary
+
+- Direct dependency on implementation details turns internal provider changes into consumer outages.
+- A formal surface is needed to keep meaning stable even when ownership and publication location are separated.
+- Layer-to-layer dependencies can only be reviewed and migrated cleanly when the allowed values are explicitly documented.
+
 ## Contract definition
 
 A Contract is a formally published value or interface used to express allowed dependencies between layers.

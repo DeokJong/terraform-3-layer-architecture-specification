@@ -7,6 +7,26 @@ nav_order: 7
 
 # Workspace Model
 
+This chapter explains why one capability may still be split across multiple Workspaces. A Layer is an ownership model, while a Workspace is an operating model for state, apply scope, permissions, and blast radius.
+
+## Questions this chapter answers
+
+- When can one capability remain in one Workspace?
+- When should core, binding, and publication be split?
+- Why can ownership stay the same even after Workspaces are separated?
+- How is the Workspace model different from the Shared Resource model?
+
+## Difference from the Shared Resource model
+
+The `Shared Resource` model explains a capability boundary in terms of what is being provided. The `Workspace Model` explains an operating boundary in terms of how change risk and apply scope are separated.
+
+In short:
+
+- Shared Resource = capability model
+- Workspace = operating-boundary model
+
+So `user-db` may be one Shared Resource while still being operated through multiple Workspaces such as `user-db`, `user-db-access`, and `user-db-publication`.
+
 ## Workspace definition
 
 A Workspace is an operational boundary for Terraform state, apply scope, permissions, and blast radius.

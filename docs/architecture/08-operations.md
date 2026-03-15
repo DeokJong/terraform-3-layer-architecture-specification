@@ -5,7 +5,7 @@ nav_parent: architecture-index
 nav_order: 10
 ---
 
-# Operations
+# 운영
 
 ## 변경 전파
 
@@ -16,7 +16,7 @@ nav_order: 10
 - implementation change는 가능하면 contract change를 유발하지 않아야 한다.
 - contract change가 발생하면 downstream consumer 검토가 필요하다.
 
-## Breaking Change
+## 호환성 깨짐 변경
 
 다음은 breaking change로 간주합니다.
 
@@ -64,5 +64,5 @@ shared resource나 service interface를 새로 만들 때는 최소한 아래를
 
 ## 다음 문서
 
-- [Decision Checklist](./10-decision-checklist.md)
+- [의사결정 체크리스트](./10-decision-checklist.md)
 

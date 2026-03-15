@@ -5,9 +5,9 @@ nav_parent: conventions-index
 nav_order: 6
 ---
 
-# Network and IAM Convention
+# 네트워크와 IAM 규약
 
-## Security Group
+## 보안 그룹
 
 - ingress rule은 받는 쪽 owner가 관리한다.
 - shared producer SG는 Platform이 소유한다.

@@ -5,18 +5,18 @@ nav_parent: conventions-index
 nav_order: 5
 ---
 
-# Workspace Convention
+# 워크스페이스 규약
 
 ## 설계 원칙
 
-- Workspace는 Layer와 분리해서 설계한다.
-- Resource Set을 먼저 정의하고 필요 시 내부 분리를 검토한다.
+- 워크스페이스는 Layer와 분리해서 설계한다.
+- 리소스 세트를 먼저 정의하고 필요 시 내부 분리를 검토한다.
 - 고위험 resource body와 churn이 높은 binding은 변경 특성이 다르면 분리한다.
-- publication은 namespace보다 contract ownership과 migration 경계를 기준으로 둔다.
+- 게시는 namespace보다 계약 ownership과 마이그레이션 경계를 기준으로 둔다.
 - 서비스 런타임은 가능한 한 독립 배포 가능해야 한다.
-- 규모가 작고 변경 특성이 유사하면 하나의 Resource Set을 하나의 Workspace로 함께 둘 수 있다.
+- 규모가 작고 변경 특성이 유사하면 하나의 리소스 세트를 하나의 워크스페이스로 함께 둘 수 있다.
 
-## naming Convention
+## 이름 규약
 
 권장 패턴:
 
@@ -36,20 +36,20 @@ nav_order: 5
 - `publication`
 - `runtime`
 
-## 같은 Workspace에 둘 수 있는 경우
+## 같은 워크스페이스에 둘 수 있는 경우
 
 - 항상 함께 변경됨
 - ownership 동일
 - apply 주체 동일
-- blast radius 차이 작음
+- 영향 범위 차이 작음
 - access rule 변경이 드묾
-- publication 변경이 primary resource와 사실상 같은 수명주기를 가짐
+- 게시 변경이 primary resource와 사실상 같은 수명주기를 가짐
 
 대표 예:
 
-- `user-db` cluster + SG allowlist + SSM publication
-- `shared-storage` bucket + bucket policy binding + output publication
-- `shared-cache` cluster + ingress allowlist + endpoint publication
+- `user-db` cluster + SG allowlist + SSM 게시
+- `shared-storage` bucket + bucket policy 바인딩 + output 게시
+- `shared-cache` cluster + ingress allowlist + endpoint 게시
 
 ## 분리해야 하는 신호
 
@@ -65,5 +65,5 @@ nav_order: 5
 - "함께 자주 바뀌면 함께 둘 수 있다"
 - "consumer onboarding이 잦으면 binding 분리를 먼저 본다"
 - "contract migration이 보이면 publication 분리를 본다"
-- "rollback 단위가 다르면 workspace를 분리한다"
+- "rollback 단위가 다르면 워크스페이스를 분리한다"
 

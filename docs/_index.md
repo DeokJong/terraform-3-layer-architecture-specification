@@ -14,12 +14,11 @@ nav_order: 1
 처음 읽는 경우 아래 순서로 보면 전체 맥락이 빠르게 잡힙니다.
 
 1. [개요](./architecture/01-overview.md)
-2. [용어집과 뷰](./architecture/01a-glossary-and-views.md)
-3. [계층](./architecture/02-layers.md)
-4. [계약](./architecture/03-contracts.md)
-5. [워크스페이스 모델](./architecture/05-workspace-model.md)
-6. [안전성과 복원력](./architecture/09-safety-and-resilience.md)
-7. [규약](./conventions/_index.md)
+2. [계층](./architecture/02-layers.md)
+3. [계약](./architecture/03-contracts.md)
+4. [워크스페이스 모델](./architecture/05-workspace-model.md)
+5. [안전성과 복원력](./architecture/09-safety-and-resilience.md)
+6. [규약](./conventions/_index.md)
 
 ## 주요 섹션
 
@@ -65,8 +64,8 @@ nav_order: 1
 ### 아키텍처 구조를 먼저 이해하려는 경우
 
 - [개요](./architecture/01-overview.md)
-- [용어집과 뷰](./architecture/01a-glossary-and-views.md)
 - [계층](./architecture/02-layers.md)
+- [용어 참고](./architecture/01a-glossary-and-views.md)
 
 ### shared resource와 contract 경계를 판단하려는 경우
 

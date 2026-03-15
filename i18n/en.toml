@@ -16,6 +16,12 @@ other = "Documentation"
 [sidebar_home]
 other = "3-Layer Terraform Docs"
 
+[sidebar_on_this_page]
+other = "On This Page"
+
+[sidebar_on_this_page_empty]
+other = "This page has no section outline."
+
 [language_switcher]
 other = "Language switcher"
 

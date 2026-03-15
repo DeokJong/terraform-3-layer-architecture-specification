@@ -5,66 +5,66 @@ nav_parent: architecture-index
 nav_order: 14
 ---
 
-# Migration and Rollout Scenarios
+# 마이그레이션과 롤아웃 시나리오
 
-## Contract Migration
+## 계약 마이그레이션
 
-1. Identify the current Active Contract.
-2. Define and publish the new Contract in parallel.
-3. Identify consumers and migration order.
-4. Operate both contracts during migration.
-5. Move the old contract to Deprecated after migration.
-6. Remove it only after stabilization.
+1. 현재 Active Contract를 식별합니다.
+2. 새 Contract를 정의하고 병행 게시합니다.
+3. 소비자와 migration 순서를 식별합니다.
+4. migration 동안 두 계약을 함께 운영합니다.
+5. migration 이후 기존 계약을 Deprecated로 전환합니다.
+6. 안정화 이후에만 제거합니다.
 
-## Shared Resource Access Expansion
+## 공유 리소스 접근 확장
 
-Scenario:
+상황:
 
-- A new service needs access to a shared DB or shared bucket.
+- 새 서비스가 shared DB 또는 shared bucket에 접근해야 합니다.
 
-Recommended sequence:
+권장 순서:
 
-1. Create the new consumer identity such as Client SG or principal.
-2. Update only the access workspace.
-3. Keep the core workspace unchanged.
-4. Connect the service through the published contract.
+1. Client SG 또는 principal 같은 새 소비자 식별자를 만듭니다.
+2. access workspace만 수정합니다.
+3. core workspace는 그대로 둡니다.
+4. 게시된 계약을 통해 서비스를 연결합니다.
 
-## Shared Resource Replacement
+## 공유 리소스 교체
 
-Scenario:
+상황:
 
-- DB engine replacement, cluster replacement, or bucket redesign is needed.
+- DB engine 교체, cluster 교체, 또는 bucket 재설계가 필요합니다.
 
-Recommended sequence:
+권장 순서:
 
-1. Confirm consumers do not read implementation values directly.
-2. Prepare the new core resource.
-3. Check whether the existing Contract can continue to represent the new core.
-4. If yes, switch publication while preserving contract meaning.
-5. If not, publish a new Contract in parallel and migrate consumers.
+1. 소비자가 implementation value를 직접 읽지 않는지 확인합니다.
+2. 새 core resource를 준비합니다.
+3. 기존 Contract가 새 core를 계속 대표할 수 있는지 확인합니다.
+4. 가능하면 contract meaning을 유지한 채 publication만 전환합니다.
+5. 불가능하면 새 Contract를 병행 게시하고 소비자를 migration합니다.
 
-## Service Rollout Failure
+## 서비스 롤아웃 실패
 
-Scenario:
+상황:
 
-- Service runtime deployment fails or a new contract consumer rollout fails.
+- 서비스 runtime 배포가 실패하거나 새 contract consumer rollout이 실패합니다.
 
-Recommended sequence:
+권장 순서:
 
-1. Roll back only the service workspace.
-2. Keep shared core and existing contracts intact.
-3. If the issue is access-related, revert only the access workspace.
+1. 서비스 workspace만 롤백합니다.
+2. shared core와 기존 계약은 그대로 유지합니다.
+3. 문제가 access 관련이면 access workspace만 되돌립니다.
 
-## Legacy Transition
+## 레거시 전환
 
-Scenario:
+상황:
 
-- Existing names and paths must stay, but ownership interpretation must move to the new model.
+- 기존 이름과 경로는 유지해야 하지만 ownership 해석은 새 모델로 옮겨야 합니다.
 
-Recommended sequence:
+권장 순서:
 
-1. Identify the current value as a legacy contract or implementation.
-2. Reinterpret provider ownership under the new rules.
-3. Route new consumers to the new contract model.
-4. Migrate existing consumers gradually.
+1. 현재 값을 legacy contract 또는 implementation으로 식별합니다.
+2. 새 규칙 아래에서 provider ownership을 다시 해석합니다.
+3. 새 소비자는 새 contract 모델로 연결합니다.
+4. 기존 소비자는 점진적으로 migration합니다.
 

@@ -28,6 +28,10 @@ cleanDestinationDir = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
 
 [params]
   description = "Architecture specification, conventions, ADRs, and governance docs for a 3-layer Terraform model"

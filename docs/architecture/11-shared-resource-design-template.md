@@ -5,55 +5,55 @@ nav_parent: architecture-index
 nav_order: 13
 ---
 
-# Shared Resource Design Template
+# 공유 리소스 설계 템플릿
 
-새 shared resource를 설계할 때 사용하는 표준 템플릿입니다.
+새 공유 리소스를 설계할 때 사용하는 표준 템플릿입니다.
 
-## Basic Record
+## 기본 기록
 
-| Field | Description |
+| 항목 | 설명 |
 | --- | --- |
-| Resource Name | Example: `user-db` |
-| Resource Type | DB / Cache / Bucket / KMS / Ingress |
-| Layer | Foundation / Platform / Service |
-| Owner | Lifecycle owner |
-| Primary Consumer | Main consumer or consumer class |
-| Criticality | low / medium / high |
+| 리소스 이름 | 예: `user-db` |
+| 리소스 유형 | DB / Cache / Bucket / KMS / Ingress |
+| 계층 | Foundation / Platform / Service |
+| 소유자 | 생명주기 소유자 |
+| 주요 소비자 | 주요 소비자 또는 소비자 집합 |
+| 중요도 | 낮음 / 중간 / 높음 |
 
-## Design Decisions
+## 설계 결정
 
-| Question | Example Answer |
+| 질문 | 예시 답변 |
 | --- | --- |
-| Why is this shared | Multiple services consume it |
-| Why does it belong to this layer | It is not tied to a single service lifecycle |
-| What is hidden as implementation | Physical endpoint or internal IDs |
-| What is published as contract | Stable DNS, SSM path, standard output |
-| How often does binding change | Monthly / weekly / frequent |
-| Is publication separate from the primary resource set | Yes or no with reason |
+| 왜 공유하는가 | 여러 서비스가 함께 소비하기 때문 |
+| 왜 이 계층에 속하는가 | 단일 서비스 생명주기에 묶이지 않기 때문 |
+| 구현으로 숨기는 것은 무엇인가 | 물리 endpoint 또는 내부 ID |
+| 계약으로 게시하는 것은 무엇인가 | Stable DNS, SSM path, 표준 output |
+| binding은 얼마나 자주 바뀌는가 | 월간 / 주간 / 빈번 |
+| 게시를 본체 리소스 세트와 분리하는가 | 예/아니오와 이유 |
 
-## Resource Set Partition Plan
+## 리소스 세트 분할 계획
 
-| Partition | Included Resources | Owner | Change Frequency | Split Decision |
+| 분할 단위 | 포함 리소스 | 소유자 | 변경 빈도 | 분리 판단 |
 | --- | --- | --- | --- | --- |
-| Primary Set | Primary resource body and closely coupled configuration | provider | low | keep together if lifecycle is aligned |
-| Binding Set | allowlist, bindings, grants, policy attachments | provider or access owner | medium or high | split if churn is high |
-| Publication Set | DNS, SSM, output publication | provider | low or medium | split if migration is likely |
+| 본체 세트 | 본체 리소스와 밀접 결합된 구성 | 제공자 | 낮음 | 생명주기가 맞으면 함께 유지 |
+| 바인딩 세트 | allowlist, bindings, grants, policy attachments | 제공자 또는 접근 소유자 | 중간 또는 높음 | churn이 높으면 분리 |
+| 게시 세트 | DNS, SSM, output publication | 제공자 | 낮음 또는 중간 | migration 가능성이 크면 분리 |
 
-## Contract Record
+## 계약 기록
 
-| Contract Name | Type | Consumer | Publication | Source of Truth | Stability |
+| 계약 이름 | 유형 | 소비자 | 게시 방식 | 원천 시스템 | 안정성 |
 | --- | --- | --- | --- | --- | --- |
 | `db-main.internal.example.com` | Connectivity | backend services | Route53 | `user-db` | stable |
 | `/backends/prod/db/primary` | Runtime | app runtime | SSM | `user-db-publication` | stable |
 
-## Review Questions
+## 검토 질문
 
-- Does this shared resource really have a shared lifecycle
-- Can the primary resource set stay stable as consumer count grows
-- Will binding churn force repeated primary resource applies
-- Can contract migration run in parallel without breaking consumers
+- 이 공유 리소스는 정말 공유 생명주기를 가지는가
+- 소비자 수가 늘어나도 본체 리소스 세트는 안정적으로 유지되는가
+- binding churn 때문에 본체 리소스에 반복 apply가 강제되는가
+- 소비자를 깨뜨리지 않고 계약 migration을 병행할 수 있는가
 
-## Next
+## 다음
 
-- [Migration and Rollout Scenarios](./12-migration-and-rollout-scenarios.md)
+- [마이그레이션과 롤아웃 시나리오](./12-migration-and-rollout-scenarios.md)
 

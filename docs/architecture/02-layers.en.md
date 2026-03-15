@@ -7,6 +7,14 @@ nav_order: 4
 
 # Layers
 
+This chapter explains how to decide which Layer a resource belongs to. The decision is about ownership and dependency direction, not merely about where something is deployed.
+
+## Questions this chapter answers
+
+- Does this resource belong to Foundation, Platform, or Service?
+- Which layers may consume contracts from which other layers?
+- Where should a shared capability stop and a service-specific implementation begin?
+
 ## Layer summary
 
 | Layer | Role | Main responsibility | Allowed dependencies |

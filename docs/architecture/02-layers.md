@@ -5,9 +5,17 @@ nav_parent: architecture-index
 nav_order: 4
 ---
 
-# Layers
+# 계층
 
-## Layer 개요
+이 장은 "이 리소스는 어느 Layer에 속하는가"를 판단하기 위한 기준을 설명합니다. 배포 위치보다 ownership과 dependency 방향을 먼저 결정하는 장입니다.
+
+## 이 장이 답하는 질문
+
+- 이 리소스는 Foundation, Platform, Service 중 어디에 두어야 하는가
+- 어떤 Layer가 어떤 Layer의 Contract를 참조할 수 있는가
+- shared capability와 service-specific implementation을 어디서 갈라야 하는가
+
+## 계층 개요
 
 | Layer | 역할 | 주된 책임 | 참조 가능 대상 |
 | --- | --- | --- | --- |
@@ -15,7 +23,7 @@ nav_order: 4
 | Platform | shared capability 제공 | 공유 런타임, 공유 데이터, 공용 인터페이스 | Foundation |
 | Service | 서비스 제공 | 서비스별 배포, 설정, 권한, 엔드포인트 | Foundation, Platform |
 
-## Dependency 방향
+## 의존 방향
 
 논리적 의존 방향:
 
@@ -28,7 +36,7 @@ nav_order: 4
 - Foundation은 Platform 또는 Service를 참조하지 않는다.
 - Platform은 Service의 내부 구현값을 참조하지 않는다.
 
-## Foundation Layer
+## Foundation 계층
 
 주요 책임:
 
@@ -50,7 +58,7 @@ nav_order: 4
 - 자주 변경되지 않는다.
 - 특정 서비스 lifecycle에 종속되지 않는다.
 
-## Platform Layer
+## Platform 계층
 
 주요 책임:
 
@@ -76,7 +84,7 @@ nav_order: 4
 
 - producer-side access control을 위한 최소 식별자(Client SG, Role ARN, principal)는 참조할 수 있다.
 
-## Service Layer
+## Service 계층
 
 주요 책임:
 
@@ -100,5 +108,5 @@ nav_order: 4
 
 ## 다음 문서
 
-- [Contracts](./03-contracts.md)
+- [계약](./03-contracts.md)
 

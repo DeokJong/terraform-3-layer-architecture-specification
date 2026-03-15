@@ -196,6 +196,48 @@
         font-size: 0.92rem;
       }
 
+      .sidebar-toc {
+        font-size: 0.92rem;
+      }
+
+      .sidebar-toc nav > ul,
+      .sidebar-toc ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .sidebar-toc li + li {
+        margin-top: 6px;
+      }
+
+      .sidebar-toc a {
+        display: block;
+        padding: 6px 10px;
+        border-radius: 10px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .sidebar-toc a:hover {
+        text-decoration: none;
+        background: #f2ede2;
+        color: var(--heading);
+      }
+
+      .sidebar-toc ul ul {
+        margin-top: 4px;
+        margin-left: 14px;
+        padding-left: 12px;
+        border-left: 2px solid #ece6d8;
+      }
+
+      .sidebar-empty {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
       .content {
         min-width: 0;
         padding: 36px;

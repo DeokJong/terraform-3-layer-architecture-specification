@@ -17,10 +17,12 @@ This portal provides the full English documentation path for the `Foundation`, `
 
 ## Start Here
 
-1. [Architecture](./architecture/)
-2. [Conventions](./conventions/)
-3. [ADR](./adr/)
-4. [Documentation System](./meta/)
+1. [Overview](./architecture/01-overview.md)
+2. [Layers](./architecture/02-layers.md)
+3. [Contracts](./architecture/03-contracts.md)
+4. [Workspace Model](./architecture/05-workspace-model.md)
+5. [Safety and Resilience](./architecture/09-safety-and-resilience.md)
+6. [Conventions](./conventions/)
 
 <div class="home-grid">
   <section class="home-card">
@@ -60,6 +62,7 @@ This portal provides the full English documentation path for the `Foundation`, `
 
 ## Reading Guide
 
-- Use the Architecture section for the conceptual model and decision rules.
+- Start with the Architecture section in chapter order if you are new to the model.
 - Use the Conventions section for repeatable implementation guidance.
 - Use ADR for decision context and the Documentation System section for maintenance workflow.
+- Use Reference Terms only as a lookup page when a term becomes unclear.

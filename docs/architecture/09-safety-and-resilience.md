@@ -5,7 +5,7 @@ nav_parent: architecture-index
 nav_order: 11
 ---
 
-# Safety and Resilience
+# 안전성과 복원력
 
 ## 목표
 
@@ -52,7 +52,7 @@ nav_order: 11
 
 ## 실패 시나리오별 기대 동작
 
-### shared resource access 변경 실패
+### 공유 리소스 접근 변경 실패
 
 예:
 
@@ -65,7 +65,7 @@ nav_order: 11
 - 실패 범위는 access 정책 변경으로 제한된다.
 - 이전 정책으로 rollback 가능해야 한다.
 
-### service rollout 실패
+### 서비스 롤아웃 실패
 
 예:
 
@@ -78,7 +78,7 @@ nav_order: 11
 - 기존 consumer contract는 유지된다.
 - 실패한 서비스 범위에서만 복구 작업이 가능해야 한다.
 
-### contract migration 실패
+### 계약 마이그레이션 실패
 
 예:
 
@@ -102,5 +102,5 @@ nav_order: 11
 
 ## 다음 문서
 
-- [Decision Checklist](./10-decision-checklist.md)
+- [의사결정 체크리스트](./10-decision-checklist.md)
 

@@ -7,6 +7,15 @@ nav_order: 6
 
 # Ownership and References
 
+This chapter defines who owns what and which references are actually allowed between layers and services. The main point is that storage location matters less than who owns lifecycle and compatibility.
+
+## Questions this chapter answers
+
+- How is ownership decided if deployment location is not the primary rule?
+- What do the Contract owner and consumer each need to guarantee?
+- Which cross-layer references are allowed and which are prohibited?
+- How far do access-control exceptions go?
+
 ## Ownership rules
 
 Resource ownership is decided by lifecycle and operational responsibility, not by where code happens to be placed.

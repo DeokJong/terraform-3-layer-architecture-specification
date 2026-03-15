@@ -1,13 +1,16 @@
 ---
-title: Glossary and Views
+title: Reference Terms
 doc_section: architecture
 nav_parent: architecture-index
-nav_order: 3
+nav_title: Reference Terms
+nav_order: 15
 ---
 
-# Glossary and Views
+# Reference Terms
 
-## Glossary
+This page is a lookup reference, not the main narrative entry point. Use it when a term becomes ambiguous while reading the architecture chapters.
+
+## Core terms
 
 | Term | Meaning |
 | --- | --- |
@@ -25,63 +28,17 @@ nav_order: 3
 | Source of Truth | System or owner responsible for the meaning and lifecycle of a value |
 | Blast Radius | Scope affected by a change or failure |
 
-## Layer view
+## Common distinctions
 
-```mermaid
----
-config:
-  layout: elk
-  theme: redux
-  look: neo
----
-flowchart TB
-    Foundation[Foundation]
-    Platform[Platform]
-    Service[Service]
+- Layer vs Workspace:
+  A Layer explains ownership and dependency rules, while a Workspace is the operational boundary for state and apply.
+- Contract vs Implementation Value:
+  A Contract is safe for consumers to depend on; an Implementation Value is an internal detail that may change.
+- Provider vs Consumer:
+  The provider owns contract meaning and compatibility. The consumer should rely only on that published contract.
 
-    Foundation --> Platform
-    Foundation --> Service
-    Platform --> Service
-```
+## When to use this page
 
-This view shows the allowed dependency direction. Higher-level capabilities may be consumed downward, but lower layers must not reach back into implementation details of upper layers.
-
-## Workspace view
-
-```mermaid
----
-config:
-  layout: elk
-  theme: redux
-  look: neo
----
-flowchart TB
-    subgraph Foundation
-        FN[foundation-network-core]
-        FD[foundation-dns-core]
-    end
-
-    subgraph Platform
-        PDB[user-db]
-        PDBP[user-db-publication]
-        PCACHE[shared-cache]
-    end
-
-    subgraph Service
-        SRT[service-orders-runtime]
-        SCT[service-orders-contract]
-    end
-
-    FN --> PDB
-    FD --> PDBP
-    PDB --> PDBP
-    PDBP --> SRT
-    PCACHE --> SRT
-    SCT --> SRT
-```
-
-This view illustrates that Layer and Workspace are related but not identical concepts. A shared capability may publish Contracts from a dedicated publication Workspace without changing ownership.
-
-## Next
-
-- [Layers](./02-layers.md)
+- when a term becomes ambiguous while reading Overview or Layers
+- when checking the exact distinction between Contract and ownership rules
+- when reviewing a design and needing a quick definition refresh

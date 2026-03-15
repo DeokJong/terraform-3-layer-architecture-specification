@@ -24,4 +24,17 @@
       </section>
     {{ end }}
   {{ end }}
+
+  {{ if .IsPage }}
+    <section class="sidebar-section sidebar-outline">
+      <p class="sidebar-title">{{ i18n "sidebar_on_this_page" }}</p>
+      {{ if .TableOfContents }}
+        <div class="sidebar-toc">
+          {{ .TableOfContents }}
+        </div>
+      {{ else }}
+        <p class="sidebar-empty">{{ i18n "sidebar_on_this_page_empty" }}</p>
+      {{ end }}
+    </section>
+  {{ end }}
 </aside>

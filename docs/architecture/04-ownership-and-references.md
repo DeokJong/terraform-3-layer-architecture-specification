@@ -5,9 +5,18 @@ nav_parent: architecture-index
 nav_order: 6
 ---
 
-# Ownership and References
+# 소유권과 참조
 
-## 리소스 ownership 판단 기준
+이 장은 "누가 무엇의 owner인가"와 "누가 누구를 어떤 방식으로 참조할 수 있는가"를 결정합니다. 리소스가 어디에 저장되어 있는지보다 누가 lifecycle과 호환성을 책임지는지가 더 중요하다는 점을 분명히 합니다.
+
+## 이 장이 답하는 질문
+
+- ownership은 배치 위치가 아니라 어떤 기준으로 결정되는가
+- Contract owner와 consumer는 각각 무엇을 책임지는가
+- 어떤 cross-layer reference는 허용되고 어떤 것은 금지되는가
+- access control 예외는 어디까지 허용되는가
+
+## 리소스 소유권 판단 기준
 
 리소스 ownership은 배치 편의가 아니라 lifecycle과 운영 책임을 기준으로 판단합니다.
 
@@ -20,7 +29,7 @@ owner의 책임:
 - 인터페이스 안정성 관리
 - 호환성 관리
 
-## Contract ownership
+## 계약 소유권
 
 Contract ownership은 다음으로 결정하지 않습니다.
 
@@ -54,7 +63,7 @@ Contract ownership은 아래 기준으로 결정합니다.
 - Service A → Service B 내부 구현 참조
 - 순환 참조
 
-## 예외: access control
+## 예외: 접근 제어
 
 다음은 제한적으로 허용합니다.
 
@@ -74,5 +83,5 @@ Contract ownership은 아래 기준으로 결정합니다.
 
 ## 다음 문서
 
-- [Workspace Model](./05-workspace-model.md)
+- [워크스페이스 모델](./05-workspace-model.md)
 

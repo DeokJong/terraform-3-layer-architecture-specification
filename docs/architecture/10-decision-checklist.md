@@ -5,7 +5,7 @@ nav_parent: architecture-index
 nav_order: 12
 ---
 
-# Decision Checklist
+# 의사결정 체크리스트
 
 새 리소스 또는 Contract 추가 시 아래 순서로 판단합니다.
 
@@ -18,7 +18,7 @@ nav_order: 12
 
 ## 관련 문서
 
-- [Safety and Resilience](./09-safety-and-resilience.md)
-- [Conventions Overview](../conventions/index.md)
+- [안전성과 복원력](./09-safety-and-resilience.md)
+- [규약 개요](../conventions/)
 - [ADR-0001](../adr/adr-0001-3layer-architecture-contract-workspace.md)
 

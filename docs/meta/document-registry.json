@@ -83,13 +83,13 @@
           ]
         },
         {
-          "title": "Glossary and Views Page",
+          "title": "Reference Terms Page",
           "path": "docs/architecture/01a-glossary-and-views.md",
-          "purpose": "Shared glossary and Mermaid views for the published architecture section.",
+          "purpose": "Lookup reference for architecture terms and commonly confused distinctions.",
           "owner": "docs-portal",
           "status": "stable",
           "next_actions": [
-            "Keep terminology and diagrams aligned with the canonical specification."
+            "Keep term definitions aligned with the canonical specification and conventions."
           ]
         },
         {

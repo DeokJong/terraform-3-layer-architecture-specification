@@ -5,7 +5,7 @@ nav_parent: architecture-index
 nav_order: 2
 ---
 
-# Overview
+# 개요
 
 ## 목적
 
@@ -47,6 +47,67 @@ nav_order: 2
 - shared infrastructure를 운영하는 플랫폼 엔지니어
 - 서비스 인프라를 설계하거나 소비하는 서비스 개발팀
 
+## 먼저 봐야 할 그림
+
+처음 읽는 사람은 세부 용어보다 먼저 "무엇이 누구를 참조할 수 있는가"와 "Layer와 Workspace가 왜 다른가"를 잡는 편이 훨씬 이해가 빠릅니다.
+
+### Layer 구조 뷰
+
+```mermaid
+---
+config:
+  layout: elk
+  theme: redux
+  look: neo
+---
+flowchart TB
+    Foundation[Foundation]
+    Platform[Platform]
+    Service[Service]
+
+    Foundation --> Platform
+    Foundation --> Service
+    Platform --> Service
+```
+
+이 다이어그램은 허용된 참조 방향을 보여줍니다. 아래 레이어는 위 레이어가 게시한 Contract를 소비할 수 있지만, 구현 세부사항을 직접 참조해서는 안 됩니다.
+
+### Workspace 구조 뷰
+
+```mermaid
+---
+config:
+  layout: elk
+  theme: redux
+  look: neo
+---
+flowchart TB
+    subgraph Foundation
+        FN[foundation-network-core]
+        FD[foundation-dns-core]
+    end
+
+    subgraph Platform
+        PDB[user-db]
+        PDBP[user-db-publication]
+        PCACHE[shared-cache]
+    end
+
+    subgraph Service
+        SRT[service-orders-runtime]
+        SCT[service-orders-contract]
+    end
+
+    FN --> PDB
+    FD --> PDBP
+    PDB --> PDBP
+    PDBP --> SRT
+    PCACHE --> SRT
+    SCT --> SRT
+```
+
+이 뷰는 Layer와 Workspace가 같은 개념이 아님을 보여줍니다. 하나의 shared capability는 ownership은 유지한 채 publication Workspace를 별도로 둘 수 있습니다.
+
 ## 설계 원칙
 
 - Layer는 ownership 모델이다.
@@ -58,7 +119,16 @@ nav_order: 2
 
 작은 규모에서는 core, access, publication을 하나의 workspace에서 함께 운영할 수 있습니다. 다만 변경 churn과 blast radius가 커질 때 분리할 수 있어야 합니다.
 
-## 다음 문서
+## 권장 읽기 순서
 
-- [Glossary and Views](./01a-glossary-and-views.md)
+처음 읽는 기준으로는 아래 순서를 권장합니다.
+
+1. [계층](./02-layers.md)
+2. [계약](./03-contracts.md)
+3. [소유권과 참조](./04-ownership-and-references.md)
+4. [워크스페이스 모델](./05-workspace-model.md)
+5. [운영](./08-operations.md)
+6. [안전성과 복원력](./09-safety-and-resilience.md)
+
+용어가 필요할 때만 [용어 참고](./01a-glossary-and-views.md)를 옆에서 찾아보면 충분합니다.
 
